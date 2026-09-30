@@ -1,0 +1,115 @@
+<!-- ==================== Admin Reports Page ==================== -->
+<section data-admin-page="a-reports" class="apage hidden">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900 tracking-tight">Laporan Penjualan</h1>
+      <p class="text-sm text-slate-500 mt-0.5">Rekap performa toko - September 2026</p>
+    </div>
+    <div class="flex gap-2">
+      <div class="flex gap-2 bg-white border border-slate-200 rounded-xl p-1">
+        <button onclick="selectChip(this,'chip-periode')" class="chip-periode px-3 py-1.5 rounded-lg bg-emerald-700 text-white text-xs font-bold">Bulanan</button>
+        <button onclick="selectChip(this,'chip-periode')" class="chip-periode px-3 py-1.5 rounded-lg text-slate-500 text-xs font-bold hover:bg-slate-50 transition">Triwulan</button>
+        <button onclick="selectChip(this,'chip-periode')" class="chip-periode px-3 py-1.5 rounded-lg text-slate-500 text-xs font-bold hover:bg-slate-50 transition">Tahunan</button>
+      </div>
+      <button onclick="toast('Laporan PDF diunduh','success')" class="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm px-4 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20"><i data-lucide="file-down" class="w-4 h-4"></i> Unduh PDF</button>
+    </div>
+  </div>
+
+  <!-- Ringkasan -->
+  <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <p class="text-xs text-slate-400 font-semibold">Omzet Kotor</p>
+      <p class="text-2xl font-extrabold text-slate-900 mt-1">Rp48.230.000</p>
+      <p class="text-xs font-bold text-emerald-600 mt-2 flex items-center gap-1"><i data-lucide="trending-up" class="w-3.5 h-3.5"></i> +18,2% vs Agustus</p>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <p class="text-xs text-slate-400 font-semibold">Pesanan Selesai</p>
+      <p class="text-2xl font-extrabold text-slate-900 mt-1">318</p>
+      <p class="text-xs font-bold text-emerald-600 mt-2 flex items-center gap-1"><i data-lucide="trending-up" class="w-3.5 h-3.5"></i> +9,4% vs Agustus</p>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <p class="text-xs text-slate-400 font-semibold">Nilai Rata-rata Order</p>
+      <p class="text-2xl font-extrabold text-slate-900 mt-1">Rp151.667</p>
+      <p class="text-xs font-bold text-red-500 mt-2 flex items-center gap-1"><i data-lucide="trending-down" class="w-3.5 h-3.5"></i> -2,1% vs Agustus</p>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <p class="text-xs text-slate-400 font-semibold">Pesanan Dibatalkan</p>
+      <p class="text-2xl font-extrabold text-slate-900 mt-1">7</p>
+      <p class="text-xs font-bold text-emerald-600 mt-2 flex items-center gap-1"><i data-lucide="trending-down" class="w-3.5 h-3.5"></i> -12% vs Agustus</p>
+    </div>
+  </div>
+
+  <div class="grid xl:grid-cols-3 gap-5">
+    <!-- Grafik omzet bulanan -->
+    <div class="xl:col-span-2 bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-slate-900 text-sm">Omzet 6 Bulan Terakhir (Rp juta)</h3>
+        <span class="text-xs text-slate-400 font-semibold">Apr - Sep 2026</span>
+      </div>
+      <div class="h-72">
+        <canvas id="reportChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Produk terlaris -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <h3 class="font-bold text-slate-900 text-sm mb-4">Produk Terlaris</h3>
+      <ol class="space-y-4">
+        <li class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-lg bg-emerald-700 text-white text-xs font-extrabold flex items-center justify-center shrink-0">1</span>
+          <div class="flex-1 min-w-0"><p class="text-sm font-bold text-slate-800 truncate">Kopi Gayo Aceh 250g</p><p class="text-xs text-slate-400">96 terjual - Rp8.160.000</p></div>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-extrabold flex items-center justify-center shrink-0">2</span>
+          <div class="flex-1 min-w-0"><p class="text-sm font-bold text-slate-800 truncate">Keripik Singkong Balado</p><p class="text-xs text-slate-400">84 terjual - Rp4.788.000</p></div>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-extrabold flex items-center justify-center shrink-0">3</span>
+          <div class="flex-1 min-w-0"><p class="text-sm font-bold text-slate-800 truncate">Tas Anyaman Rotan</p><p class="text-xs text-slate-400">41 terjual - Rp7.585.000</p></div>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-500 text-xs font-extrabold flex items-center justify-center shrink-0">4</span>
+          <div class="flex-1 min-w-0"><p class="text-sm font-bold text-slate-800 truncate">Serum Wajah Herbal</p><p class="text-xs text-slate-400">38 terjual - Rp5.662.000</p></div>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-500 text-xs font-extrabold flex items-center justify-center shrink-0">5</span>
+          <div class="flex-1 min-w-0"><p class="text-sm font-bold text-slate-800 truncate">Kopi Toraja 200g</p><p class="text-xs text-slate-400">33 terjual - Rp2.805.000</p></div>
+        </li>
+      </ol>
+      <button onclick="toast('Laporan lengkap produk diunduh','success')" class="w-full mt-5 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2.5 rounded-xl transition">Lihat Semua Produk</button>
+    </div>
+  </div>
+
+  <!-- Rekap per kategori -->
+  <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden mt-5">
+    <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+      <h3 class="font-bold text-slate-900 text-sm">Rekap per Kategori</h3>
+      <button onclick="toast('Data kategori diekspor','success')" class="text-xs font-bold text-emerald-700 hover:underline">Ekspor</button>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm min-w-[640px]">
+        <thead><tr class="bg-slate-50 text-left text-xs text-slate-500 font-semibold">
+          <th class="px-5 py-3">Kategori</th><th class="px-5 py-3">Pesanan</th><th class="px-5 py-3">Omzet</th><th class="px-5 py-3">Kontribusi</th>
+        </tr></thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5 font-bold text-slate-800">Kopi & Minuman</td><td class="px-5 py-3.5 text-slate-600">142</td><td class="px-5 py-3.5 font-semibold">Rp16.398.000</td>
+            <td class="px-5 py-3.5"><div class="flex items-center gap-2"><div class="w-28 h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-emerald-600 rounded-full" style="width:34%"></div></div><span class="text-xs font-bold text-slate-500">34%</span></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5 font-bold text-slate-800">Camilan</td><td class="px-5 py-3.5 text-slate-600">98</td><td class="px-5 py-3.5 font-semibold">Rp12.540.000</td>
+            <td class="px-5 py-3.5"><div class="flex items-center gap-2"><div class="w-28 h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-emerald-400 rounded-full" style="width:26%"></div></div><span class="text-xs font-bold text-slate-500">26%</span></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5 font-bold text-slate-800">Fashion & Kriya</td><td class="px-5 py-3.5 text-slate-600">52</td><td class="px-5 py-3.5 font-semibold">Rp10.610.000</td>
+            <td class="px-5 py-3.5"><div class="flex items-center gap-2"><div class="w-28 h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-orange-400 rounded-full" style="width:22%"></div></div><span class="text-xs font-bold text-slate-500">22%</span></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5 font-bold text-slate-800">Lainnya</td><td class="px-5 py-3.5 text-slate-600">26</td><td class="px-5 py-3.5 font-semibold">Rp8.682.000</td>
+            <td class="px-5 py-3.5"><div class="flex items-center gap-2"><div class="w-28 h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-slate-300 rounded-full" style="width:18%"></div></div><span class="text-xs font-bold text-slate-500">18%</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

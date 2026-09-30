@@ -1,0 +1,122 @@
+    <!-- ==================== Public Checkout Page ==================== -->
+    <section data-page="checkout" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 py-6 lg:py-10">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <a href="#" onclick="go('cart'); return false;" class="hover:text-emerald-700">Keranjang</a>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          <span class="font-semibold text-slate-800">Checkout</span>
+        </nav>
+        <h1 class="text-2xl font-extrabold text-slate-900 mb-6 tracking-tight">Checkout</h1>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-5">
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 flex items-center gap-2 mb-5"><span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-extrabold flex items-center justify-center">1</span> Alamat Pengiriman</h2>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nama lengkap</label>
+                  <input type="text" value="Rina Sulastri" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nomor telepon</label>
+                  <input type="tel" value="0812" class="w-full bg-red-50/50 border border-red-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-400">
+                  <p class="text-xs text-red-600 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Nomor telepon minimal 10 digit, contoh: 081234567890</p>
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Alamat lengkap</label>
+                  <textarea rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">Jl. Kenanga Raya No. 12, RT 03/RW 05, Kel. Sukamaju</textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Kota / Kabupaten</label>
+                  <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"><option>Kota Bandung</option><option>Kota Jakarta Selatan</option><option>Kota Surabaya</option></select>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Kode pos</label>
+                  <input type="text" value="40123" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <p class="text-xs text-emerald-700 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Alamat terdeteksi valid</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 flex items-center gap-2 mb-5"><span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-extrabold flex items-center justify-center">2</span> Pilih Kurir</h2>
+              <div class="space-y-3">
+                <button onclick="selectOption(this,'opt-kurir')" class="opt-kurir w-full flex items-center gap-4 border-2 border-emerald-700 bg-emerald-50/50 rounded-xl p-4 text-left transition">
+                  <i data-lucide="truck" class="w-5 h-5 text-emerald-700 shrink-0"></i>
+                  <div class="flex-1"><p class="font-bold text-sm text-slate-900">JNE Regular</p><p class="text-xs text-slate-500 mt-0.5">Estimasi tiba 2-3 hari kerja</p></div>
+                  <span class="font-bold text-sm text-emerald-800">Rp23.000</span>
+                </button>
+                <button onclick="selectOption(this,'opt-kurir')" class="opt-kurir w-full flex items-center gap-4 border border-slate-200 rounded-xl p-4 text-left hover:border-emerald-300 transition">
+                  <i data-lucide="truck" class="w-5 h-5 text-slate-400 shrink-0"></i>
+                  <div class="flex-1"><p class="font-bold text-sm text-slate-900">J&amp;T Express</p><p class="text-xs text-slate-500 mt-0.5">Estimasi tiba 2-4 hari kerja</p></div>
+                  <span class="font-bold text-sm text-slate-700">Rp21.000</span>
+                </button>
+                <button onclick="selectOption(this,'opt-kurir')" class="opt-kurir w-full flex items-center gap-4 border border-slate-200 rounded-xl p-4 text-left hover:border-emerald-300 transition">
+                  <i data-lucide="zap" class="w-5 h-5 text-slate-400 shrink-0"></i>
+                  <div class="flex-1"><p class="font-bold text-sm text-slate-900">SiCepat Halu</p><p class="text-xs text-slate-500 mt-0.5">Estimasi tiba 1-2 hari kerja</p></div>
+                  <span class="font-bold text-sm text-slate-700">Rp19.000</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 flex items-center gap-2 mb-5"><span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-extrabold flex items-center justify-center">3</span> Metode Pembayaran</h2>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <button onclick="selectOption(this,'opt-bayar')" class="opt-bayar flex items-center gap-3 border-2 border-emerald-700 bg-emerald-50/50 rounded-xl p-4 text-left transition">
+                  <i data-lucide="landmark" class="w-5 h-5 text-emerald-700 shrink-0"></i>
+                  <div><p class="font-bold text-sm text-slate-900">Transfer Bank</p><p class="text-xs text-slate-500">BCA, Mandiri, BNI, BRI</p></div>
+                </button>
+                <button onclick="selectOption(this,'opt-bayar')" class="opt-bayar flex items-center gap-3 border border-slate-200 rounded-xl p-4 text-left hover:border-emerald-300 transition">
+                  <i data-lucide="wallet" class="w-5 h-5 text-slate-400 shrink-0"></i>
+                  <div><p class="font-bold text-sm text-slate-900">E-Wallet</p><p class="text-xs text-slate-500">GoPay, OVO, DANA, ShopeePay</p></div>
+                </button>
+                <button onclick="selectOption(this,'opt-bayar')" class="opt-bayar flex items-center gap-3 border border-slate-200 rounded-xl p-4 text-left hover:border-emerald-300 transition">
+                  <i data-lucide="banknote" class="w-5 h-5 text-slate-400 shrink-0"></i>
+                  <div><p class="font-bold text-sm text-slate-900">COD</p><p class="text-xs text-slate-500">Bayar di tempat saat paket tiba</p></div>
+                </button>
+                <button onclick="selectOption(this,'opt-bayar')" class="opt-bayar flex items-center gap-3 border border-slate-200 rounded-xl p-4 text-left hover:border-emerald-300 transition">
+                  <i data-lucide="credit-card" class="w-5 h-5 text-slate-400 shrink-0"></i>
+                  <div><p class="font-bold text-sm text-slate-900">Kartu Kredit/Debit</p><p class="text-xs text-slate-500">Visa, Mastercard, JCB</p></div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ringkasan Checkout -->
+          <div class="lg:sticky lg:top-24 h-fit space-y-4">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5">
+              <h2 class="font-bold text-slate-900 mb-4">Pesanan Anda (3 barang)</h2>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=120&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-gayo/120/120'" alt="Kopi Gayo" class="w-12 h-12 rounded-xl object-cover">
+                  <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-slate-800 truncate">Kopi Gayo Arabika 250gr</p><p class="text-xs text-slate-400">2 x Rp85.000</p></div>
+                  <p class="text-sm font-bold">Rp170.000</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=120&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/serum-wajah/120/120'" alt="Serum Wajah" class="w-12 h-12 rounded-xl object-cover">
+                  <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-slate-800 truncate">Serum Wajah Pencerah 30ml</p><p class="text-xs text-slate-400">1 x Rp125.000</p></div>
+                  <p class="text-sm font-bold">Rp125.000</p>
+                </div>
+              </div>
+              <div class="flex gap-2 mt-4">
+                <input type="text" value="HEMAT20" class="flex-1 bg-slate-50 border border-emerald-200 rounded-xl px-3.5 py-2.5 text-sm text-emerald-700 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <button onclick="toast('Voucher HEMAT20 diterapkan','success')" class="bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold text-sm px-4 rounded-xl hover:bg-emerald-100 transition">Pakai</button>
+              </div>
+              <p class="text-xs text-emerald-700 font-medium mt-2 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Voucher HEMAT20 aktif, hemat Rp20.000</p>
+              <div class="border-t border-slate-100 mt-4 pt-4 space-y-2.5 text-sm">
+                <div class="flex justify-between"><span class="text-slate-500">Subtotal produk</span><span class="font-semibold">Rp295.000</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Ongkir (JNE Regular)</span><span class="font-semibold">Rp23.000</span></div>
+                <div class="flex justify-between text-emerald-700"><span>Diskon voucher</span><span class="font-semibold">-Rp20.000</span></div>
+              </div>
+              <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between items-baseline">
+                <span class="font-bold text-slate-900">Total</span>
+                <span class="text-xl font-extrabold text-emerald-800">Rp298.000</span>
+              </div>
+              <button onclick="go('payment')" class="mt-4 w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2">Lanjut ke Pembayaran <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <p class="text-[11px] text-slate-400 text-center mt-3">Dengan melanjutkan, Anda menyetujui Syarat & Ketentuan NusantaraMart</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

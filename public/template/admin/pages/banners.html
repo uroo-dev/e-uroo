@@ -1,0 +1,84 @@
+<!-- ==================== Admin Banners Page ==================== -->
+<section data-admin-page="a-banners" class="apage hidden">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900 tracking-tight">Banner Beranda</h1>
+      <p class="text-sm text-slate-500 mt-0.5">Atur banner hero dan promo yang tampil di halaman utama toko</p>
+    </div>
+    <button onclick="toast('Form tambah banner dibuka (demo)','success')" class="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20"><i data-lucide="plus" class="w-4 h-4"></i> Tambah Banner</button>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-5">
+    <!-- Banner 1 (aktif, utama) -->
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/banner-umkm/900/420'" alt="Banner Belanja Lokal Berkualitas" class="w-full h-44 object-cover">
+        <span class="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-600 text-white">Tayang</span>
+        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-white/90 text-slate-700">Urutan 1</span>
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-slate-900 text-sm">Belanja Lokal, Kualitas Nasional</p>
+        <p class="text-xs text-slate-400 mt-1">Hero utama - link ke halaman Semua Produk</p>
+        <div class="flex gap-2 mt-4">
+          <button onclick="toast('Banner diedit (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Edit</button>
+          <button onclick="toast('Banner disembunyikan dari beranda','error')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Sembunyikan</button>
+          <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus banner"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner 2 -->
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/banner-kopi/900/420'" alt="Banner Festival Kopi Nusantara" class="w-full h-44 object-cover">
+        <span class="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-600 text-white">Tayang</span>
+        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-white/90 text-slate-700">Urutan 2</span>
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-slate-900 text-sm">Festival Kopi Nusantara - Diskon s.d. 40%</p>
+        <p class="text-xs text-slate-400 mt-1">Promo mingguan - link ke kategori Kopi & Minuman</p>
+        <div class="flex gap-2 mt-4">
+          <button onclick="toast('Banner diedit (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Edit</button>
+          <button onclick="toast('Banner disembunyikan dari beranda','error')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Sembunyikan</button>
+          <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus banner"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner 3 -->
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/banner-kriya/900/420'" alt="Banner Kriya Lokal" class="w-full h-44 object-cover">
+        <span class="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-slate-500 text-white">Dijadwalkan</span>
+        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-white/90 text-slate-700">Mulai 5 Okt</span>
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-slate-900 text-sm">Kriya Lokal: Tas Anyaman Pengrajin Desa</p>
+        <p class="text-xs text-slate-400 mt-1">Terjadwal tayang 5 - 20 Okt 2026</p>
+        <div class="flex gap-2 mt-4">
+          <button onclick="toast('Banner diedit (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Edit</button>
+          <button onclick="toast('Banner langsung ditayangkan','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Tayangkan Sekarang</button>
+          <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus banner"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner 4 (arsip) -->
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden opacity-70">
+      <div class="relative">
+        <img src="https://picsum.photos/seed/banner-arsip/900/420" alt="Banner Lebaran UMKM" class="w-full h-44 object-cover">
+        <span class="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-slate-400 text-white">Arsip</span>
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-slate-900 text-sm">Hampers Lebaran UMKM 2026</p>
+        <p class="text-xs text-slate-400 mt-1">Selesai tayang 15 Apr 2026</p>
+        <div class="flex gap-2 mt-4">
+          <button onclick="toast('Banner diarsipkan dipulihkan (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Tayangkan Lagi</button>
+          <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus banner"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-xs text-slate-400 mt-5">Tips: ukuran banner disarankan 1600x600 px agar tajam di layar desktop.</p>
+</section>

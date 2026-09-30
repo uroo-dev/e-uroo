@@ -1,0 +1,85 @@
+    <!-- ==================== Public Payment Page ==================== -->
+    <section data-page="payment" class="page hidden">
+      <div class="max-w-4xl mx-auto px-4 py-6 lg:py-10">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <a href="#" onclick="go('checkout'); return false;" class="hover:text-emerald-700">Checkout</a>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          <span class="font-semibold text-slate-800">Pembayaran</span>
+        </nav>
+        <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Selesaikan Pembayaran</h1>
+        <p class="text-sm text-slate-500 mt-1">Selesaikan pembayaran sebelum batas waktu agar pesanan tidak dibatalkan otomatis.</p>
+
+        <div class="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex items-center gap-3 mt-6">
+          <i data-lucide="clock" class="w-5 h-5 text-orange-600 shrink-0"></i>
+          <p class="text-sm text-slate-700">Bayar dalam <span class="font-extrabold text-orange-600">23 jam 59 menit</span> - sebelum Selasa, 30 September 2026 pukul 14.22 WIB</p>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-6 mt-6">
+          <div class="md:col-span-3 space-y-5">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 flex items-center gap-2 mb-4"><i data-lucide="landmark" class="w-5 h-5 text-emerald-700"></i> Transfer Bank BCA</h2>
+              <div class="bg-slate-50 rounded-xl p-4">
+                <p class="text-xs text-slate-500 font-medium">Nomor Virtual Account</p>
+                <div class="flex items-center justify-between gap-3 mt-1.5">
+                  <p class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-wider">8808 1234 5678 9012</p>
+                  <button onclick="copyText('8808 1234 5678 9012')" class="bg-white border border-slate-200 rounded-xl p-2.5 text-slate-500 hover:text-emerald-700 hover:border-emerald-300 transition shrink-0" aria-label="Salin nomor VA"><i data-lucide="copy" class="w-4 h-4"></i></button>
+                </div>
+                <p class="text-xs text-slate-500 mt-1.5">a.n. <span class="font-semibold text-slate-700">NusantaraMart Indonesia</span></p>
+              </div>
+              <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4 mt-4">
+                <p class="text-xs text-emerald-800 font-medium">Total yang harus ditransfer (termasuk kode unik):</p>
+                <p class="text-2xl font-extrabold text-emerald-800 mt-1">Rp298.431</p>
+              </div>
+              <div class="mt-5">
+                <p class="text-sm font-bold text-slate-800 mb-2">Cara pembayaran</p>
+                <ol class="text-sm text-slate-600 space-y-2 list-decimal pl-5">
+                  <li>Masuk ke m-BCA, pilih menu Transfer - Virtual Account.</li>
+                  <li>Masukkan nomor VA di atas, lalu transfer sesuai nominal sampai 3 digit terakhir.</li>
+                  <li>Simpan bukti transfer, lalu unggah pada kolom di bawah.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 flex items-center gap-2 mb-4"><i data-lucide="upload-cloud" class="w-5 h-5 text-emerald-700"></i> Unggah Bukti Pembayaran</h2>
+              <label class="block border-2 border-dashed border-slate-300 rounded-xl p-8 text-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-50/40 transition">
+                <i data-lucide="image-plus" class="w-8 h-8 text-slate-300 mx-auto"></i>
+                <p class="text-sm font-semibold text-slate-700 mt-3">Klik untuk unggah bukti transfer</p>
+                <p class="text-xs text-slate-400 mt-1">Format JPG, PNG, atau PDF - maksimal 2 MB</p>
+                <input type="file" class="hidden" accept=".jpg,.jpeg,.png,.pdf" onchange="toast('Bukti pembayaran terunggah','success')">
+              </label>
+              <div class="mt-4">
+                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nama pemilik rekening pengirim</label>
+                <input type="text" placeholder="Contoh: Rina Sulastri" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              </div>
+              <label class="flex items-start gap-2.5 mt-4 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 rounded border-slate-300 text-emerald-600 mt-0.5">
+                <span class="text-xs text-slate-500">Saya sudah mentransfer sesuai nominal dan menyetujui bahwa pesanan akan diverifikasi maksimal 1x24 jam.</span>
+              </label>
+              <button onclick="go('success')" class="mt-5 w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-md shadow-emerald-700/20">Konfirmasi Pembayaran</button>
+            </div>
+          </div>
+
+          <div class="md:col-span-2">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 md:sticky md:top-24">
+              <h2 class="font-bold text-slate-900 mb-4">Detail Pesanan</h2>
+              <p class="text-xs text-slate-400">No. Invoice</p>
+              <p class="text-sm font-bold text-slate-800">INV-2841</p>
+              <div class="border-t border-slate-100 mt-4 pt-4 space-y-2.5 text-sm">
+                <div class="flex justify-between"><span class="text-slate-500">Subtotal produk</span><span class="font-semibold">Rp295.000</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Ongkir</span><span class="font-semibold">Rp23.000</span></div>
+                <div class="flex justify-between text-emerald-700"><span>Diskon voucher</span><span class="font-semibold">-Rp20.000</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Kode unik</span><span class="font-semibold">Rp431</span></div>
+              </div>
+              <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between items-baseline">
+                <span class="font-bold text-slate-900">Total</span>
+                <span class="text-lg font-extrabold text-emerald-800">Rp298.431</span>
+              </div>
+              <div class="mt-4 flex items-center gap-2 text-xs text-slate-500 bg-slate-50 rounded-xl p-3">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Pembayaran dijamin aman. Dana diteruskan ke penjual setelah barang diterima.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,72 @@
+<!-- ==================== Admin Customers Page ==================== -->
+<section data-admin-page="a-customers" class="apage hidden">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900 tracking-tight">Data Pelanggan</h1>
+      <p class="text-sm text-slate-500 mt-0.5">1.284 pelanggan terdaftar - 96 aktif bulan ini</p>
+    </div>
+    <button onclick="toast('Data pelanggan diekspor','success')" class="flex items-center gap-2 bg-white border border-slate-200 hover:border-emerald-300 text-slate-600 font-semibold text-sm px-4 py-2.5 rounded-xl transition"><i data-lucide="download" class="w-4 h-4"></i> Ekspor CSV</button>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+    <div class="p-4 sm:p-5 flex flex-wrap items-center gap-3 border-b border-slate-100">
+      <div class="relative flex-1 min-w-[180px] max-w-xs">
+        <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input type="text" placeholder="Cari nama, email, atau kota..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+      </div>
+      <div class="flex gap-2 overflow-x-auto">
+        <button onclick="selectChip(this,'chip-cust')" class="chip-cust shrink-0 px-3.5 py-2 rounded-xl bg-emerald-700 text-white text-xs font-bold">Semua</button>
+        <button onclick="selectChip(this,'chip-cust')" class="chip-cust shrink-0 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold hover:border-emerald-300 transition">Pelanggan Setia</button>
+        <button onclick="selectChip(this,'chip-cust')" class="chip-cust shrink-0 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold hover:border-emerald-300 transition">Baru</button>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm min-w-[820px]">
+        <thead><tr class="bg-slate-50 text-left text-xs text-slate-500 font-semibold">
+          <th class="px-5 py-3">Pelanggan</th><th class="px-5 py-3">Kota</th><th class="px-5 py-3">Pesanan</th><th class="px-5 py-3">Total Belanja</th><th class="px-5 py-3">Bergabung</th><th class="px-5 py-3 text-right">Aksi</th>
+        </tr></thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5"><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/pel-bayu/80/80" alt="Foto Bayu Nugroho" class="w-9 h-9 rounded-xl object-cover"><div><p class="font-bold text-slate-800">Bayu Nugroho</p><p class="text-xs text-slate-400">bayu.nugroho@email.com</p></div></div></td>
+            <td class="px-5 py-3.5 text-slate-600">Depok</td><td class="px-5 py-3.5 font-semibold text-slate-700">12</td><td class="px-5 py-3.5 font-semibold">Rp3.240.000</td><td class="px-5 py-3.5 text-slate-500 text-xs">Mar 2025</td>
+            <td class="px-5 py-3.5 text-right"><div class="flex justify-end gap-1"><button onclick="toast('Membuka riwayat pesanan Bayu (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Riwayat pesanan"><i data-lucide="receipt" class="w-4 h-4"></i></button><button onclick="toast('Mengirim chat ke Bayu (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Chat pelanggan"><i data-lucide="message-circle" class="w-4 h-4"></i></button></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5"><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/pel-siti/80/80" alt="Foto Siti Rahmawati" class="w-9 h-9 rounded-xl object-cover"><div><p class="font-bold text-slate-800">Siti Rahmawati</p><p class="text-xs text-slate-400">siti.rahma@email.com</p></div></div></td>
+            <td class="px-5 py-3.5 text-slate-600">Bandung</td><td class="px-5 py-3.5 font-semibold text-slate-700">8</td><td class="px-5 py-3.5 font-semibold">Rp1.892.500</td><td class="px-5 py-3.5 text-slate-500 text-xs">Jun 2025</td>
+            <td class="px-5 py-3.5 text-right"><div class="flex justify-end gap-1"><button onclick="toast('Membuka riwayat pesanan Siti (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Riwayat pesanan"><i data-lucide="receipt" class="w-4 h-4"></i></button><button onclick="toast('Mengirim chat ke Siti (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Chat pelanggan"><i data-lucide="message-circle" class="w-4 h-4"></i></button></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5"><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/pel-rina/80/80" alt="Foto Rina Sulastri" class="w-9 h-9 rounded-xl object-cover"><div><p class="font-bold text-slate-800">Rina Sulastri</p><p class="text-xs text-slate-400">rina.sulastri@email.com</p></div></div></td>
+            <td class="px-5 py-3.5 text-slate-600">Jakarta Selatan</td><td class="px-5 py-3.5 font-semibold text-slate-700">15</td><td class="px-5 py-3.5 font-semibold">Rp4.115.431</td><td class="px-5 py-3.5 text-slate-500 text-xs">Jan 2025</td>
+            <td class="px-5 py-3.5 text-right"><div class="flex justify-end gap-1"><button onclick="toast('Membuka riwayat pesanan Rina (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Riwayat pesanan"><i data-lucide="receipt" class="w-4 h-4"></i></button><button onclick="toast('Mengirim chat ke Rina (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Chat pelanggan"><i data-lucide="message-circle" class="w-4 h-4"></i></button></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5"><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/pel-ahmad/80/80" alt="Foto Ahmad Fauzi" class="w-9 h-9 rounded-xl object-cover"><div><p class="font-bold text-slate-800">Ahmad Fauzi</p><p class="text-xs text-slate-400">ahmad.fauzi@email.com</p></div></div></td>
+            <td class="px-5 py-3.5 text-slate-600">Surabaya</td><td class="px-5 py-3.5 font-semibold text-slate-700">3</td><td class="px-5 py-3.5 font-semibold">Rp412.000</td><td class="px-5 py-3.5 text-slate-500 text-xs">Agu 2026</td>
+            <td class="px-5 py-3.5 text-right"><div class="flex justify-end gap-1"><button onclick="toast('Membuka riwayat pesanan Ahmad (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Riwayat pesanan"><i data-lucide="receipt" class="w-4 h-4"></i></button><button onclick="toast('Mengirim chat ke Ahmad (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Chat pelanggan"><i data-lucide="message-circle" class="w-4 h-4"></i></button></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5"><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/pel-dewi/80/80" alt="Foto Dewi Anggraini" class="w-9 h-9 rounded-xl object-cover"><div><p class="font-bold text-slate-800">Dewi Anggraini</p><p class="text-xs text-slate-400">dewi.anggraini@email.com</p></div></div></td>
+            <td class="px-5 py-3.5 text-slate-600">Yogyakarta</td><td class="px-5 py-3.5 font-semibold text-slate-700">21</td><td class="px-5 py-3.5 font-semibold">Rp6.730.000</td><td class="px-5 py-3.5 text-slate-500 text-xs">Nov 2024</td>
+            <td class="px-5 py-3.5 text-right"><div class="flex justify-end gap-1"><button onclick="toast('Membuka riwayat pesanan Dewi (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Riwayat pesanan"><i data-lucide="receipt" class="w-4 h-4"></i></button><button onclick="toast('Mengirim chat ke Dewi (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Chat pelanggan"><i data-lucide="message-circle" class="w-4 h-4"></i></button></div></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-3.5"><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/pel-hendra/80/80" alt="Foto Hendra Wijaya" class="w-9 h-9 rounded-xl object-cover"><div><p class="font-bold text-slate-800">Hendra Wijaya</p><p class="text-xs text-slate-400">hendra.wijaya@email.com</p></div></div></td>
+            <td class="px-5 py-3.5 text-slate-600">Medan</td><td class="px-5 py-3.5 font-semibold text-slate-700">6</td><td class="px-5 py-3.5 font-semibold">Rp1.045.000</td><td class="px-5 py-3.5 text-slate-500 text-xs">Feb 2026</td>
+            <td class="px-5 py-3.5 text-right"><div class="flex justify-end gap-1"><button onclick="toast('Membuka riwayat pesanan Hendra (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Riwayat pesanan"><i data-lucide="receipt" class="w-4 h-4"></i></button><button onclick="toast('Mengirim chat ke Hendra (demo)','success')" class="p-2 rounded-xl text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 transition" aria-label="Chat pelanggan"><i data-lucide="message-circle" class="w-4 h-4"></i></button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-t border-slate-100">
+      <p class="text-xs text-slate-400">Menampilkan 1-6 dari 1.284 pelanggan</p>
+      <div class="flex items-center gap-1.5">
+        <button class="w-8 h-8 rounded-xl border border-slate-200 text-slate-400 flex items-center justify-center hover:border-emerald-300 transition" aria-label="Sebelumnya"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+        <button class="w-8 h-8 rounded-xl bg-emerald-700 text-white text-xs font-bold flex items-center justify-center">1</button>
+        <button onclick="toast('Halaman 2 dimuat','success')" class="w-8 h-8 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 flex items-center justify-center hover:border-emerald-300 transition">2</button>
+        <button onclick="toast('Halaman berikutnya dimuat','success')" class="w-8 h-8 rounded-xl border border-slate-200 text-slate-600 flex items-center justify-center hover:border-emerald-300 transition" aria-label="Berikutnya"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+</section>

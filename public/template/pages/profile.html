@@ -1,0 +1,107 @@
+    <!-- ==================== Public Profile Page ==================== -->
+    <section data-page="profile" class="page hidden">
+      <div class="max-w-6xl mx-auto px-4 py-6 lg:py-10">
+        <h1 class="text-2xl font-extrabold text-slate-900 mb-6 tracking-tight">Profil & Pengaturan Akun</h1>
+        <div class="grid lg:grid-cols-4 gap-6">
+          <aside class="lg:col-span-1">
+            <div class="bg-white border border-slate-200 rounded-2xl p-4">
+              <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                <img src="https://picsum.photos/seed/avatar-rina/80/80" alt="Foto profil Rina" class="w-12 h-12 rounded-xl object-cover">
+                <div><p class="font-bold text-sm text-slate-900">Rina Sulastri</p><p class="text-xs text-slate-500">rina.sulastri@email.com</p></div>
+              </div>
+              <nav class="mt-3 space-y-1 text-sm font-medium">
+                <button onclick="switchProfileTab(this,'ptab-data')" class="ptab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-emerald-50 text-emerald-800 font-semibold text-left"><i data-lucide="user" class="w-4 h-4"></i> Data Diri</button>
+                <button onclick="switchProfileTab(this,'ptab-alamat')" class="ptab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 text-left transition"><i data-lucide="map-pin" class="w-4 h-4"></i> Alamat</button>
+                <button onclick="switchProfileTab(this,'ptab-keamanan')" class="ptab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 text-left transition"><i data-lucide="lock" class="w-4 h-4"></i> Keamanan</button>
+                <button onclick="switchProfileTab(this,'ptab-notif')" class="ptab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 text-left transition"><i data-lucide="bell" class="w-4 h-4"></i> Notifikasi</button>
+                <button onclick="go('login'); toast('Anda telah keluar dari akun','success')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-red-600 hover:bg-red-50 text-left transition"><i data-lucide="log-out" class="w-4 h-4"></i> Keluar</button>
+              </nav>
+            </div>
+          </aside>
+
+          <div class="lg:col-span-3">
+            <div id="ptab-data" class="ptab-panel bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 mb-5">Data Diri</h2>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Nama lengkap</label><input type="text" value="Rina Sulastri" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></div>
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Email</label><input type="email" value="rina.sulastri@email.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></div>
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Nomor telepon</label><input type="tel" value="081234567890" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></div>
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Tanggal lahir</label><input type="date" value="1996-04-18" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></div>
+                <div class="sm:col-span-2">
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Jenis kelamin</label>
+                  <div class="flex gap-3">
+                    <label class="flex-1 flex items-center gap-2.5 border-2 border-emerald-700 bg-emerald-50/50 rounded-xl px-4 py-2.5 text-sm font-semibold text-emerald-800 cursor-pointer"><input type="radio" name="gender" checked class="w-4 h-4 text-emerald-600"> Perempuan</label>
+                    <label class="flex-1 flex items-center gap-2.5 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-600 cursor-pointer hover:border-emerald-300 transition"><input type="radio" name="gender" class="w-4 h-4 text-emerald-600"> Laki-laki</label>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mt-5">
+                <button onclick="toast('Perubahan data diri disimpan','success')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-xl text-sm transition">Simpan Perubahan</button>
+                <span class="hidden sm:flex items-center gap-1.5 text-xs text-emerald-700 font-medium"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Terakhir disimpan 2 hari lalu</span>
+              </div>
+            </div>
+
+            <div id="ptab-alamat" class="ptab-panel hidden bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="font-bold text-slate-900">Alamat Tersimpan</h2>
+                <button onclick="toast('Form alamat baru dibuka','success')" class="text-sm font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"><i data-lucide="plus" class="w-4 h-4"></i> Tambah alamat</button>
+              </div>
+              <div class="border-2 border-emerald-700 bg-emerald-50/40 rounded-xl p-4">
+                <div class="flex items-center gap-2"><p class="font-bold text-sm text-slate-900">Rumah</p><span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">UTAMA</span></div>
+                <p class="text-sm font-semibold text-slate-800 mt-2">Rina Sulastri - 081234567890</p>
+                <p class="text-sm text-slate-500 mt-1 leading-relaxed">Jl. Kenanga Raya No. 12, RT 03/RW 05, Kel. Sukamaju, Kota Bandung, Jawa Barat 40123</p>
+                <div class="flex gap-4 mt-3">
+                  <button onclick="toast('Alamat diperbarui','success')" class="text-xs font-bold text-emerald-700 hover:underline">Ubah</button>
+                  <button onclick="toast('Alamat dihapus','error')" class="text-xs font-bold text-red-600 hover:underline">Hapus</button>
+                </div>
+              </div>
+              <div class="border border-slate-200 rounded-xl p-4 mt-3">
+                <p class="font-bold text-sm text-slate-900">Kantor</p>
+                <p class="text-sm font-semibold text-slate-800 mt-2">Rina Sulastri - 081234567890</p>
+                <p class="text-sm text-slate-500 mt-1 leading-relaxed">Gedung Sate Tower, Jl. Diponegoro No. 22 Lantai 5, Kota Bandung, Jawa Barat 40115</p>
+                <div class="flex gap-4 mt-3">
+                  <button onclick="toast('Alamat dijadikan utama','success')" class="text-xs font-bold text-emerald-700 hover:underline">Jadikan utama</button>
+                  <button onclick="toast('Alamat diperbarui','success')" class="text-xs font-bold text-slate-500 hover:underline">Ubah</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="ptab-keamanan" class="ptab-panel hidden bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 mb-5">Keamanan Akun</h2>
+              <div class="space-y-4 max-w-md">
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Kata sandi saat ini</label>
+                  <div class="relative"><input id="pw-current" type="password" value="passwordlama" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"><button onclick="togglePassword('pw-current',this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" aria-label="Tampilkan kata sandi"><i data-lucide="eye" class="w-4 h-4"></i></button></div>
+                </div>
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Kata sandi baru</label>
+                  <div class="relative"><input id="pw-new" type="password" value="baru123" class="w-full bg-red-50/50 border border-red-300 rounded-xl px-3.5 py-2.5 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"><button onclick="togglePassword('pw-new',this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" aria-label="Tampilkan kata sandi"><i data-lucide="eye" class="w-4 h-4"></i></button></div>
+                  <p class="text-xs text-red-600 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Kata sandi minimal 8 karakter dan mengandung angka</p>
+                </div>
+                <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Ulangi kata sandi baru</label>
+                  <div class="relative"><input id="pw-repeat" type="password" value="passwordbaruku123" class="w-full bg-slate-50 border border-emerald-300 rounded-xl px-3.5 py-2.5 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"><button onclick="togglePassword('pw-repeat',this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" aria-label="Tampilkan kata sandi"><i data-lucide="eye" class="w-4 h-4"></i></button></div>
+                  <p class="text-xs text-emerald-700 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Kata sandi cocok</p>
+                </div>
+                <button onclick="toast('Kata sandi berhasil diubah','success')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-xl text-sm transition">Ubah Kata Sandi</button>
+              </div>
+            </div>
+
+            <div id="ptab-notif" class="ptab-panel hidden bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h2 class="font-bold text-slate-900 mb-5">Preferensi Notifikasi</h2>
+              <div class="space-y-3 max-w-lg">
+                <label class="flex items-center justify-between border border-slate-200 rounded-xl px-4 py-3.5 cursor-pointer hover:border-emerald-300 transition">
+                  <span><span class="block text-sm font-semibold text-slate-800">Status pesanan</span><span class="block text-xs text-slate-500 mt-0.5">Update pengiriman via email & push</span></span>
+                  <input type="checkbox" checked onchange="toast('Preferensi notifikasi disimpan','success')" class="w-5 h-5 rounded border-slate-300 text-emerald-600">
+                </label>
+                <label class="flex items-center justify-between border border-slate-200 rounded-xl px-4 py-3.5 cursor-pointer hover:border-emerald-300 transition">
+                  <span><span class="block text-sm font-semibold text-slate-800">Promo & diskon</span><span class="block text-xs text-slate-500 mt-0.5">Voucher eksklusif untuk anggota</span></span>
+                  <input type="checkbox" onchange="toast('Preferensi notifikasi disimpan','success')" class="w-5 h-5 rounded border-slate-300 text-emerald-600">
+                </label>
+                <label class="flex items-center justify-between border border-slate-200 rounded-xl px-4 py-3.5 cursor-pointer hover:border-emerald-300 transition">
+                  <span><span class="block text-sm font-semibold text-slate-800">Produk wishlist turun harga</span><span class="block text-xs text-slate-500 mt-0.5">Kabar saat harga produk favorit berubah</span></span>
+                  <input type="checkbox" checked onchange="toast('Preferensi notifikasi disimpan','success')" class="w-5 h-5 rounded border-slate-300 text-emerald-600">
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

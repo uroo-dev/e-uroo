@@ -1,0 +1,77 @@
+    <!-- ==================== Public Category Page ==================== -->
+    <section data-page="category" class="page hidden">
+      <div class="bg-emerald-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-10 lg:py-14">
+          <nav class="flex items-center gap-2 text-sm text-emerald-200 mb-5">
+            <a href="#" onclick="go('home'); return false;" class="hover:text-white">Beranda</a>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500"></i>
+            <span class="font-semibold text-white">Kategori</span>
+          </nav>
+          <h1 class="text-2xl lg:text-4xl font-extrabold tracking-tight">Jelajahi Kategori Produk</h1>
+          <p class="text-emerald-100/90 text-sm mt-2 max-w-lg">Semua kategori pilihan dari mitra UMKM NusantaraMart, dikurasi berdasarkan kualitas dan ulasan pembeli.</p>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 py-8 lg:py-12">
+        <div class="flex gap-2 overflow-x-auto pb-2 mb-8">
+          <button onclick="selectChip(this,'chip-kat')" class="chip-kat shrink-0 px-4 py-2 rounded-xl bg-emerald-700 text-white text-sm font-semibold">Semua</button>
+          <button onclick="selectChip(this,'chip-kat')" class="chip-kat shrink-0 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Kopi & Minuman</button>
+          <button onclick="selectChip(this,'chip-kat')" class="chip-kat shrink-0 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Camilan</button>
+          <button onclick="selectChip(this,'chip-kat')" class="chip-kat shrink-0 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Fashion</button>
+          <button onclick="selectChip(this,'chip-kat')" class="chip-kat shrink-0 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Perawatan</button>
+          <button onclick="selectChip(this,'chip-kat')" class="chip-kat shrink-0 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Kerajinan</button>
+        </div>
+
+        <h2 class="text-lg font-extrabold text-slate-900 mb-4">Kopi & Minuman <span class="text-sm font-medium text-slate-400">(124 produk)</span></h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+            <div class="relative">
+              <a href="#" onclick="go('product'); return false;"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-gayo/500/500'" alt="Kopi Gayo" class="w-full aspect-square object-cover"></a>
+              <span class="absolute top-3 left-3 bg-orange-500 text-white text-[11px] font-bold px-2 py-1 rounded-lg">-15%</span>
+              <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+            </div>
+            <div class="p-3.5">
+              <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Gayo Arabika 250gr</a>
+              <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,9 <span class="text-slate-300">|</span> 1,2rb terjual</div>
+              <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp85.000</span><span class="text-xs text-slate-400 line-through">Rp100.000</span></div>
+              <button onclick="addToCart('Kopi Gayo Arabika 250gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+            <div class="relative">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/kopi-toraja/500/500" alt="Kopi Toraja" class="w-full aspect-square object-cover"></a>
+              <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+            </div>
+            <div class="p-3.5">
+              <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Toraja Kalosi 200gr</a>
+              <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 890 terjual</div>
+              <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp92.000</span></div>
+              <button onclick="addToCart('Kopi Toraja Kalosi 200gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+            <div class="relative">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/teh-telang/500/500" alt="Teh Bunga Telang" class="w-full aspect-square object-cover"></a>
+              <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+            </div>
+            <div class="p-3.5">
+              <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Teh Bunga Telang Kering 100gr</a>
+              <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,9 <span class="text-slate-300">|</span> 412 terjual</div>
+              <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp38.000</span></div>
+              <button onclick="addToCart('Teh Bunga Telang Kering 100gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+            <div class="relative">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/gula-aren/500/500" alt="Gula Aren" class="w-full aspect-square object-cover"></a>
+              <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+            </div>
+            <div class="p-3.5">
+              <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Gula Aren Cair Banten 500ml</a>
+              <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 1,1rb terjual</div>
+              <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp42.000</span></div>
+              <button onclick="addToCart('Gula Aren Cair Banten 500ml')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

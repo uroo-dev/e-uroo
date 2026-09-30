@@ -1,0 +1,55 @@
+    <!-- ==================== Public Contact Page ==================== -->
+    <section data-page="contact" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 py-6 lg:py-12">
+        <h1 class="text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">Hubungi Kami</h1>
+        <p class="text-sm text-slate-500 mt-2 max-w-lg">Tim kami siap membantu pertanyaan seputar pesanan, produk, atau kerja sama UMKM.</p>
+
+        <div class="grid lg:grid-cols-3 gap-6 mt-8">
+          <div class="space-y-4">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 flex items-start gap-4">
+              <span class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0"><i data-lucide="message-circle" class="w-5 h-5 text-emerald-700"></i></span>
+              <div><p class="font-bold text-sm text-slate-900">WhatsApp</p><p class="text-sm text-slate-500 mt-1">0811-2345-6789</p><p class="text-xs text-slate-400 mt-1">Setiap hari, 08.00-22.00 WIB</p></div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 flex items-start gap-4">
+              <span class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-5 h-5 text-emerald-700"></i></span>
+              <div><p class="font-bold text-sm text-slate-900">Email</p><p class="text-sm text-slate-500 mt-1">halo@nusantaramart.id</p><p class="text-xs text-slate-400 mt-1">Dibalas maksimal 1x24 jam</p></div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 flex items-start gap-4">
+              <span class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-emerald-700"></i></span>
+              <div><p class="font-bold text-sm text-slate-900">Kantor & Gudang</p><p class="text-sm text-slate-500 mt-1 leading-relaxed">Jl. Cihampelas No. 88, Kota Bandung, Jawa Barat 40131</p></div>
+            </div>
+            <img src="https://picsum.photos/seed/peta-bandung/600/300" alt="Lokasi kantor NusantaraMart" class="rounded-2xl object-cover w-full aspect-[2/1] border border-slate-200">
+          </div>
+
+          <div class="lg:col-span-2">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8">
+              <h2 class="font-bold text-slate-900 text-lg">Kirim pesan</h2>
+              <p class="text-sm text-slate-500 mt-1">Isi formulir di bawah, kami akan segera menghubungi Anda.</p>
+              <form onsubmit="event.preventDefault();" class="mt-6 grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nama lengkap</label>
+                  <input type="text" value="Rina Sulastri" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                  <input type="email" value="rina.sulastri@email" class="w-full bg-red-50/50 border border-red-300 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400">
+                  <p class="text-xs text-red-600 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Format email tidak valid</p>
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Topik</label>
+                  <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"><option>Status pesanan</option><option>Komplain produk</option><option>Kerja sama UMKM</option><option>Lainnya</option></select>
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Pesan</label>
+                  <textarea rows="5" placeholder="Ceritakan kendala atau pertanyaan Anda..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                </div>
+                <div class="sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <button type="button" onclick="toast('Pesan berhasil dikirim, terima kasih!','success')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-md shadow-emerald-700/20">Kirim Pesan</button>
+                  <p class="text-xs text-emerald-700 font-medium flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Pesan sebelumnya berhasil dikirim dan sedang diproses tim kami</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

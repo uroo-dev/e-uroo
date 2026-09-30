@@ -1,0 +1,103 @@
+        <!-- ==================== Admin Add Product Page ==================== -->
+        <section data-admin-page="a-product-add" class="apage hidden">
+          <div class="flex items-center gap-2 text-sm text-slate-500 mb-5">
+            <button onclick="goAdmin('a-products')" class="hover:text-emerald-700">Produk</button>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+            <span class="font-semibold text-slate-800">Tambah Produk</span>
+          </div>
+          <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900 tracking-tight mb-6">Tambah Produk Baru</h1>
+
+          <form onsubmit="event.preventDefault();" class="grid xl:grid-cols-3 gap-5">
+            <div class="xl:col-span-2 space-y-5">
+              <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 space-y-4">
+                <h2 class="font-bold text-slate-900">Informasi Dasar</h2>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nama produk</label>
+                  <input type="text" value="Kopi" class="w-full bg-red-50/50 border border-red-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-400">
+                  <p class="text-xs text-red-600 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Nama produk minimal 10 karakter agar mudah ditemukan pembeli</p>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Deskripsi produk</label>
+                  <textarea rows="5" placeholder="Jelaskan bahan, ukuran, keunggulan, dan cara penggunaan produk..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Kategori</label>
+                    <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"><option>Pilih kategori</option><option>Kopi & Minuman</option><option>Camilan</option><option>Fashion</option><option>Perawatan</option><option>Kerajinan</option><option>Sembako</option></select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Kondisi</label>
+                    <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"><option>Baru</option><option>Pre-order</option></select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 space-y-4">
+                <h2 class="font-bold text-slate-900">Harga & Inventaris</h2>
+                <div class="grid sm:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Harga jual (Rp)</label>
+                    <input type="text" value="85.000" class="w-full bg-slate-50 border border-emerald-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <p class="text-xs text-emerald-700 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Format harga valid</p>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Harga coret (Rp, opsional)</label>
+                    <input type="text" placeholder="100.000" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Stok awal</label>
+                    <input type="number" placeholder="0" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Varian ukuran / kemasan</label>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-2 rounded-xl">250gr <button type="button" onclick="this.parentElement.remove(); toast('Varian dihapus','error')" aria-label="Hapus varian"><i data-lucide="x" class="w-3.5 h-3.5"></i></button></span>
+                    <span class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-2 rounded-xl">500gr <button type="button" onclick="this.parentElement.remove(); toast('Varian dihapus','error')" aria-label="Hapus varian"><i data-lucide="x" class="w-3.5 h-3.5"></i></button></span>
+                    <button type="button" onclick="toast('Tambah varian baru (demo)','success')" class="inline-flex items-center gap-1.5 border border-dashed border-slate-300 text-slate-500 text-xs font-bold px-3 py-2 rounded-xl hover:border-emerald-400 hover:text-emerald-700 transition"><i data-lucide="plus" class="w-3.5 h-3.5"></i> Tambah varian</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6">
+                <h2 class="font-bold text-slate-900 mb-1">Foto Produk</h2>
+                <p class="text-xs text-slate-400 mb-4">Unggah hingga 5 foto. Foto pertama menjadi tampilan utama. Minimal 800x800 px.</p>
+                <label class="block border-2 border-dashed border-slate-300 rounded-xl p-10 text-center cursor-pointer hover:border-emerald-400 hover:bg-emerald-50/40 transition">
+                  <i data-lucide="image-plus" class="w-9 h-9 text-slate-300 mx-auto"></i>
+                  <p class="text-sm font-semibold text-slate-700 mt-3">Klik atau seret foto ke sini</p>
+                  <p class="text-xs text-slate-400 mt-1">JPG / PNG, maksimal 2 MB per foto</p>
+                  <input type="file" class="hidden" accept=".jpg,.jpeg,.png" multiple onchange="toast('3 foto berhasil diunggah','success')">
+                </label>
+                <div class="grid grid-cols-4 gap-3 mt-4">
+                  <div class="relative aspect-square rounded-xl overflow-hidden border border-slate-200"><img src="https://picsum.photos/seed/foto-produk-1/200/200" alt="Foto produk 1" class="w-full h-full object-cover"><span class="absolute top-1.5 left-1.5 bg-emerald-700 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">UTAMA</span></div>
+                  <div class="relative aspect-square rounded-xl overflow-hidden border border-slate-200"><img src="https://picsum.photos/seed/foto-produk-2/200/200" alt="Foto produk 2" class="w-full h-full object-cover"></div>
+                  <div class="relative aspect-square rounded-xl overflow-hidden border border-slate-200"><img src="https://picsum.photos/seed/foto-produk-3/200/200" alt="Foto produk 3" class="w-full h-full object-cover"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-5">
+              <div class="bg-white border border-slate-200 rounded-2xl p-5">
+                <h2 class="font-bold text-slate-900 mb-4">Status & Publikasi</h2>
+                <label class="flex items-center justify-between border border-slate-200 rounded-xl px-4 py-3 cursor-pointer hover:border-emerald-300 transition">
+                  <span class="text-sm font-semibold text-slate-700">Tampilkan di toko</span>
+                  <input type="checkbox" checked onchange="toast(this.checked ? 'Produk akan tampil di toko' : 'Produk disembunyikan dari toko','success')" class="w-5 h-5 rounded border-slate-300 text-emerald-600">
+                </label>
+                <label class="flex items-center justify-between border border-slate-200 rounded-xl px-4 py-3 mt-3 cursor-pointer hover:border-emerald-300 transition">
+                  <span class="text-sm font-semibold text-slate-700">Tandai sebagai unggulan</span>
+                  <input type="checkbox" onchange="toast('Pengaturan unggulan disimpan','success')" class="w-5 h-5 rounded border-slate-300 text-emerald-600">
+                </label>
+                <div class="mt-4">
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Berat produk (gram)</label>
+                  <input type="number" placeholder="250" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+              </div>
+              <div class="bg-white border border-slate-200 rounded-2xl p-5">
+                <h2 class="font-bold text-slate-900 mb-3">Simpan Produk</h2>
+                <button type="button" onclick="toast('Produk berhasil ditambahkan ke katalog','success'); goAdmin('a-products')" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl text-sm transition shadow-md shadow-emerald-700/20">Simpan & Publikasikan</button>
+                <button type="button" onclick="toast('Draf produk disimpan','success')" class="w-full mt-3 border border-slate-200 hover:bg-slate-50 text-slate-600 font-semibold py-3 rounded-xl text-sm transition">Simpan sebagai draf</button>
+                <button type="button" onclick="goAdmin('a-products')" class="w-full mt-3 text-slate-400 hover:text-red-600 font-semibold py-2 text-sm transition">Batal</button>
+              </div>
+            </div>
+          </form>
+        </section>

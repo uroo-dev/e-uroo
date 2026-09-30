@@ -1,0 +1,70 @@
+    <!-- ==================== Public Search Results Page ==================== -->
+    <section data-page="search" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 py-6 lg:py-10">
+        <div class="md:hidden relative mb-6">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" value="kopi" class="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+        </div>
+
+        <div id="search-filled">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div>
+              <h1 class="text-xl font-extrabold text-slate-900">Hasil pencarian untuk "kopi"</h1>
+              <p class="text-sm text-slate-500 mt-1">Menampilkan <span class="font-semibold text-slate-700">3 produk</span> dari 1.284 total produk</p>
+            </div>
+            <button onclick="toggleDemoState('search')" class="text-xs font-semibold text-slate-400 hover:text-emerald-700 border border-slate-200 rounded-xl px-3 py-2 transition">Demo: lihat empty state</button>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <div class="relative">
+                <a href="#" onclick="go('product'); return false;"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-gayo/500/500'" alt="Kopi Gayo" class="w-full aspect-square object-cover"></a>
+                <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+              </div>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Gayo Arabika 250gr</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,9 <span class="text-slate-300">|</span> 1,2rb terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp85.000</p>
+                <button onclick="addToCart('Kopi Gayo Arabika 250gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <div class="relative">
+                <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/kopi-toraja/500/500" alt="Kopi Toraja" class="w-full aspect-square object-cover"></a>
+                <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+              </div>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Toraja Kalosi 200gr</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 890 terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp92.000</p>
+                <button onclick="addToCart('Kopi Toraja Kalosi 200gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+              </div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <div class="relative">
+                <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/kopi-bali/500/500" alt="Kopi Kintamani" class="w-full aspect-square object-cover"></a>
+                <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+              </div>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Kintamani Bali 250gr</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,7 <span class="text-slate-300">|</span> 654 terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp78.000</p>
+                <button onclick="addToCart('Kopi Kintamani Bali 250gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="search-empty" class="hidden">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <h1 class="text-xl font-extrabold text-slate-900">Hasil pencarian untuk "sepatu roda"</h1>
+            <button onclick="toggleDemoState('search')" class="text-xs font-semibold text-slate-400 hover:text-emerald-700 border border-slate-200 rounded-xl px-3 py-2 transition">Demo: lihat hasil</button>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-2xl py-16 px-6 text-center max-w-lg mx-auto">
+            <span class="w-16 h-16 mx-auto rounded-2xl bg-slate-50 flex items-center justify-center"><i data-lucide="search-x" class="w-8 h-8 text-slate-300"></i></span>
+            <h3 class="font-bold text-lg text-slate-900 mt-5">Produk tidak ditemukan</h3>
+            <p class="text-sm text-slate-500 mt-2">Tidak ada produk yang cocok dengan kata kunci "sepatu roda". Coba kata kunci lain atau jelajahi kategori kami.</p>
+            <button onclick="go('products')" class="mt-6 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm px-6 py-3 rounded-xl transition inline-flex items-center gap-2">Jelajahi Semua Produk <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>

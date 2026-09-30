@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - NusantaraMart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-['Plus_Jakarta_Sans'] bg-slate-100 text-slate-800 antialiased">
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-[90] flex flex-col gap-2 items-end"></div>
+
+  <!-- Modal admin (hapus, konfirmasi pembayaran, kategori) -->
+  <div data-include="partials/admin/modals.html"></div>
+
+  <div id="admin-area" class="min-h-screen flex bg-slate-100">
+
+    <div id="admin-overlay" class="hidden fixed inset-0 bg-slate-900/60 z-40 lg:hidden" onclick="toggleAdminDrawer()"></div>
+
+    <!-- Sidebar -->
+    <div data-include="partials/admin/sidebar.html"></div>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <!-- Topbar -->
+      <div data-include="partials/admin/topbar.html"></div>
+
+      <main class="flex-1 p-4 lg:p-8">
+
+        <!-- ==================== Halaman admin (satu file per halaman di folder admin/pages/) ==================== -->
+        <div data-include="admin/pages/dashboard.html"></div>
+        <div data-include="admin/pages/products.html"></div>
+        <div data-include="admin/pages/product-add.html"></div>
+        <div data-include="admin/pages/product-edit.html"></div>
+        <div data-include="admin/pages/categories.html"></div>
+        <div data-include="admin/pages/inventory.html"></div>
+        <div data-include="admin/pages/orders.html"></div>
+        <div data-include="admin/pages/order-detail.html"></div>
+        <div data-include="admin/pages/order-status.html"></div>
+        <div data-include="admin/pages/payments.html"></div>
+        <div data-include="admin/pages/customers.html"></div>
+        <div data-include="admin/pages/vouchers.html"></div>
+        <div data-include="admin/pages/banners.html"></div>
+        <div data-include="admin/pages/reports.html"></div>
+        <div data-include="admin/pages/settings.html"></div>
+        <div data-include="admin/pages/profile.html"></div>
+        <div data-include="admin/pages/placeholder.html"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

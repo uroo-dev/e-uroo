@@ -1,0 +1,124 @@
+<!-- ==================== Admin Settings Page ==================== -->
+<section data-admin-page="a-settings" class="apage hidden">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900 tracking-tight">Pengaturan Toko</h1>
+      <p class="text-sm text-slate-500 mt-0.5">Identitas toko, pengiriman, dan metode pembayaran</p>
+    </div>
+    <button onclick="toast('Pengaturan toko disimpan','success')" class="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20"><i data-lucide="save" class="w-4 h-4"></i> Simpan Perubahan</button>
+  </div>
+
+  <div class="grid xl:grid-cols-3 gap-5 items-start">
+    <div class="xl:col-span-2 space-y-5">
+      <!-- Identitas toko -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5">
+        <h3 class="font-bold text-slate-900 text-sm mb-4 flex items-center gap-2"><i data-lucide="store" class="w-4 h-4 text-emerald-600"></i> Identitas Toko</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5" for="set-nama">Nama Toko</label>
+            <input id="set-nama" type="text" value="NusantaraMart" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5" for="set-telp">No. Telepon / WhatsApp</label>
+            <input id="set-telp" type="text" value="0812-3456-7890" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5" for="set-alamat">Alamat Toko / Gudang</label>
+            <textarea id="set-alamat" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">Jl. Pasar Baru No. 45, Kel. Cihapit, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40114</textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-semibold text-slate-500 mb-1.5" for="set-desk">Deskripsi Singkat</label>
+            <textarea id="set-desk" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">Marketplace produk UMKM lokal Indonesia. Belanja berkualitas sambil mendukung pengrajin dan petani Nusantara.</textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pengiriman -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5">
+        <h3 class="font-bold text-slate-900 text-sm mb-4 flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4 text-emerald-600"></i> Pengiriman</h3>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="flex-1"><span class="block text-sm font-bold text-slate-800">JNE Reguler</span><span class="block text-xs text-slate-400 mt-0.5">2-4 hari kerja - seluruh Indonesia</span></span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="flex-1"><span class="block text-sm font-bold text-slate-800">SiCepat Halu</span><span class="block text-xs text-slate-400 mt-0.5">2-3 hari kerja - Jawa, Sumatera, Bali</span></span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 accent-emerald-700">
+            <span class="flex-1"><span class="block text-sm font-bold text-slate-800">GoSend Instant</span><span class="block text-xs text-slate-400 mt-0.5">Same day - hanya kota Bandung</span></span>
+          </label>
+        </div>
+        <div class="mt-4">
+          <label class="block text-xs font-semibold text-slate-500 mb-1.5" for="set-ongkir">Batas gratis ongkir (Rp)</label>
+          <input id="set-ongkir" type="text" value="150.000" class="w-full max-w-xs bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+        </div>
+      </div>
+
+      <!-- Pembayaran -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5">
+        <h3 class="font-bold text-slate-900 text-sm mb-4 flex items-center gap-2"><i data-lucide="credit-card" class="w-4 h-4 text-emerald-600"></i> Metode Pembayaran</h3>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="text-sm font-bold text-slate-800">Transfer BCA</span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="text-sm font-bold text-slate-800">Transfer Mandiri</span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="text-sm font-bold text-slate-800">GoPay</span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="text-sm font-bold text-slate-800">OVO</span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 accent-emerald-700">
+            <span class="text-sm font-bold text-slate-800">QRIS</span>
+          </label>
+          <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 hover:border-emerald-300 transition cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+            <span class="text-sm font-bold text-slate-800">COD (Bayar di Tempat)</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-5">
+      <!-- Notifikasi -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5">
+        <h3 class="font-bold text-slate-900 text-sm mb-4 flex items-center gap-2"><i data-lucide="bell" class="w-4 h-4 text-emerald-600"></i> Notifikasi</h3>
+        <div class="space-y-3 text-sm">
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="font-semibold text-slate-700">Pesanan baru (email)</span>
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+          </label>
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="font-semibold text-slate-700">Bukti bayar masuk (WhatsApp)</span>
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+          </label>
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="font-semibold text-slate-700">Peringatan stok menipis</span>
+            <input type="checkbox" checked class="w-4 h-4 accent-emerald-700">
+          </label>
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="font-semibold text-slate-700">Ringkasan mingguan</span>
+            <input type="checkbox" class="w-4 h-4 accent-emerald-700">
+          </label>
+        </div>
+      </div>
+
+      <!-- Zona berbahaya -->
+      <div class="bg-white border border-red-100 rounded-2xl p-5">
+        <h3 class="font-bold text-red-600 text-sm mb-2 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i> Zona Berbahaya</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">Tindakan di bawah ini permanen dan tidak dapat dibatalkan pada template demo.</p>
+        <button onclick="toast('Mode maintenance diaktifkan (demo)','error')" class="w-full mt-4 border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-sm py-2.5 rounded-xl transition">Aktifkan Mode Maintenance</button>
+        <button onclick="openModal('modal-delete')" class="w-full mt-2 bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-2.5 rounded-xl transition">Reset Data Demo Toko</button>
+      </div>
+    </div>
+  </div>
+</section>

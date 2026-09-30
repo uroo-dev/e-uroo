@@ -1,0 +1,176 @@
+    <!-- ==================== Public Product Detail Page ==================== -->
+    <section data-page="product" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 py-6 lg:py-10">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <a href="#" onclick="go('home'); return false;" class="hover:text-emerald-700">Beranda</a>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          <a href="#" onclick="go('category'); return false;" class="hover:text-emerald-700">Kopi & Minuman</a>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          <span class="font-semibold text-slate-800 truncate">Kopi Gayo Arabika 250gr</span>
+        </nav>
+
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <!-- Galeri Produk -->
+          <div>
+            <img id="gallery-main" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-gayo/800/800'" alt="Kopi Gayo Arabika" class="w-full aspect-square object-cover rounded-2xl border border-slate-200 bg-white">
+            <div class="grid grid-cols-4 gap-3 mt-3">
+              <button onclick="setGallery('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80&auto=format&fit=crop','https://picsum.photos/seed/kopi-gayo/800/800')" class="ring-2 ring-emerald-600 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=200&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-gayo/200/200'" alt="Foto 1" class="w-full aspect-square object-cover"></button>
+              <button onclick="setGallery('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80&auto=format&fit=crop','https://picsum.photos/seed/kopi-cangkir/800/800')" class="rounded-xl overflow-hidden border border-slate-200 hover:border-emerald-400 transition"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-cangkir/200/200'" alt="Foto 2" class="w-full aspect-square object-cover"></button>
+              <button onclick="setGallery('https://picsum.photos/seed/kopi-kebun/800/800','')" class="rounded-xl overflow-hidden border border-slate-200 hover:border-emerald-400 transition"><img src="https://picsum.photos/seed/kopi-kebun/200/200" alt="Foto 3" class="w-full aspect-square object-cover"></button>
+              <button onclick="setGallery('https://picsum.photos/seed/kopi-bubuk/800/800','')" class="rounded-xl overflow-hidden border border-slate-200 hover:border-emerald-400 transition"><img src="https://picsum.photos/seed/kopi-bubuk/200/200" alt="Foto 4" class="w-full aspect-square object-cover"></button>
+            </div>
+          </div>
+
+          <!-- Info Produk -->
+          <div>
+            <p class="text-sm font-semibold text-emerald-700">Kopi & Minuman - Aceh Tengah</p>
+            <h1 class="text-2xl lg:text-3xl font-extrabold text-slate-900 mt-1.5 tracking-tight">Kopi Gayo Arabika 250gr - Biji Kopi Pilihan Petani Aceh</h1>
+            <div class="flex flex-wrap items-center gap-3 mt-3 text-sm">
+              <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>4,9</span>
+              <span class="text-slate-300">|</span>
+              <span class="text-slate-500">1.243 terjual</span>
+              <span class="text-slate-300">|</span>
+              <button onclick="switchInfoTab('ulasan')" class="text-emerald-700 font-semibold hover:underline">128 ulasan</button>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 mt-5">
+              <div class="flex items-baseline gap-3">
+                <span class="text-3xl font-extrabold text-emerald-800">Rp85.000</span>
+                <span class="text-slate-400 line-through">Rp100.000</span>
+                <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-lg">Hemat 15%</span>
+              </div>
+
+              <div class="mt-5">
+                <p class="text-sm font-semibold text-slate-700 mb-2">Varian kemasan</p>
+                <div class="flex gap-2">
+                  <button onclick="selectChip(this,'chip-varian')" class="chip-varian px-4 py-2 rounded-xl border-2 border-emerald-700 bg-emerald-50 text-emerald-800 text-sm font-semibold">250gr</button>
+                  <button onclick="selectChip(this,'chip-varian')" class="chip-varian px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">500gr</button>
+                  <button onclick="selectChip(this,'chip-varian')" class="chip-varian px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">1kg</button>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <p class="text-sm font-semibold text-slate-700 mb-2">Tingkat sangrai</p>
+                <div class="flex gap-2">
+                  <button onclick="selectChip(this,'chip-roast')" class="chip-roast px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Light</button>
+                  <button onclick="selectChip(this,'chip-roast')" class="chip-roast px-4 py-2 rounded-xl border-2 border-emerald-700 bg-emerald-50 text-emerald-800 text-sm font-semibold">Medium</button>
+                  <button onclick="selectChip(this,'chip-roast')" class="chip-roast px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-sm font-semibold hover:border-emerald-300 transition">Dark</button>
+                </div>
+              </div>
+
+              <div class="mt-5 flex flex-wrap items-end gap-4">
+                <div>
+                  <p class="text-sm font-semibold text-slate-700 mb-2">Jumlah</p>
+                  <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden">
+                    <button onclick="changeQty('detail-qty',-1)" class="px-3.5 py-2.5 text-slate-500 hover:bg-slate-50 transition" aria-label="Kurangi"><i data-lucide="minus" class="w-4 h-4"></i></button>
+                    <input id="detail-qty" type="text" value="1" readonly class="w-10 text-center text-sm font-bold text-slate-800 focus:outline-none">
+                    <button onclick="changeQty('detail-qty',1)" class="px-3.5 py-2.5 text-slate-500 hover:bg-slate-50 transition" aria-label="Tambah"><i data-lucide="plus" class="w-4 h-4"></i></button>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-500 pb-1">Stok tersedia: <span class="font-bold text-emerald-700">87 pcs</span></p>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                <button onclick="addToCart('Kopi Gayo Arabika 250gr')" class="flex-1 border-2 border-emerald-700 text-emerald-700 hover:bg-emerald-50 font-bold py-3 rounded-xl text-sm transition flex items-center justify-center gap-2"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Tambah ke Keranjang</button>
+                <button onclick="go('checkout')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl text-sm transition shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Beli Sekarang</button>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-3 mt-5">
+              <div class="bg-white border border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                <i data-lucide="package-check" class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5"></i>
+                <div><p class="text-xs font-bold text-slate-800">Stok siap kirim</p><p class="text-xs text-slate-500 mt-0.5">Dikirim dalam 24 jam</p></div>
+              </div>
+              <div class="bg-white border border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                <i data-lucide="truck" class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5"></i>
+                <div><p class="text-xs font-bold text-slate-800">Estimasi tiba</p><p class="text-xs text-slate-500 mt-0.5">2-4 hari ke Jakarta</p></div>
+              </div>
+              <div class="bg-white border border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5"></i>
+                <div><p class="text-xs font-bold text-slate-800">Garansi 7 hari</p><p class="text-xs text-slate-500 mt-0.5">Uang kembali jika rusak</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Deskripsi / Ulasan / Pengiriman -->
+        <div class="mt-10 lg:mt-14 bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <div class="flex border-b border-slate-200 overflow-x-auto">
+            <button onclick="switchInfoTab('deskripsi')" id="tab-btn-deskripsi" class="info-tab px-5 py-4 text-sm font-bold border-b-2 border-emerald-700 text-emerald-800 whitespace-nowrap">Deskripsi</button>
+            <button onclick="switchInfoTab('ulasan')" id="tab-btn-ulasan" class="info-tab px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">Ulasan (128)</button>
+            <button onclick="switchInfoTab('pengiriman')" id="tab-btn-pengiriman" class="info-tab px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap">Pengiriman</button>
+          </div>
+          <div id="info-deskripsi" class="info-panel p-6 text-sm text-slate-600 leading-relaxed space-y-3">
+            <p>Kopi Gayo Arabika ditanam di dataran tinggi Gayo, Aceh, pada ketinggian 1.200-1.500 mdpl. Dipetik manual oleh petani mitra dan disangrai dalam batch kecil untuk menjaga kesegaran aroma.</p>
+            <p>Profil rasa: cokelat hitam, karamel, dengan sedikit sentuhan buah tropis. Tingkat keasaman rendah sehingga nyaman di lambung. Cocok untuk seduh manual (V60, tubruk) maupun mesin espresso.</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li>Berat bersih 250 gram, kemasan one-way valve</li>
+              <li>Tersedia bentuk biji atau bubuk (cantumkan di catatan)</li>
+              <li>Dipanen dan disangrai setiap minggu</li>
+            </ul>
+          </div>
+          <div id="info-ulasan" class="info-panel hidden p-6 space-y-5">
+            <div class="flex gap-4">
+              <img src="https://picsum.photos/seed/pembeli-rina/80/80" alt="Rina Sulastri" class="w-10 h-10 rounded-xl object-cover shrink-0">
+              <div>
+                <div class="flex items-center gap-2"><p class="font-bold text-sm text-slate-800">Rina Sulastri</p><span class="flex items-center gap-0.5 text-xs text-amber-500"><i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>5,0</span></div>
+                <p class="text-sm text-slate-600 mt-1">Aromanya kuat, bungkusnya rapi pakai valve. Sudah pesan ketiga kalinya, konsisten enak.</p>
+                <p class="text-xs text-slate-400 mt-1.5">12 September 2026</p>
+              </div>
+            </div>
+            <div class="flex gap-4 border-t border-slate-100 pt-5">
+              <img src="https://picsum.photos/seed/pembeli-bagus/80/80" alt="Bagas Pratama" class="w-10 h-10 rounded-xl object-cover shrink-0">
+              <div>
+                <div class="flex items-center gap-2"><p class="font-bold text-sm text-slate-800">Bagas Pratama</p><span class="flex items-center gap-0.5 text-xs text-amber-500"><i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>4,5</span></div>
+                <p class="text-sm text-slate-600 mt-1">Pengiriman cepat ke Surabaya. Rasa medium roastnya pas, tidak terlalu asam.</p>
+                <p class="text-xs text-slate-400 mt-1.5">8 September 2026</p>
+              </div>
+            </div>
+          </div>
+          <div id="info-pengiriman" class="info-panel hidden p-6 text-sm text-slate-600 space-y-3">
+            <div class="flex items-center gap-3 bg-slate-50 rounded-xl p-4"><i data-lucide="map-pin" class="w-5 h-5 text-emerald-700"></i><p>Dikirim dari <span class="font-bold text-slate-800">Takengon, Aceh Tengah</span></p></div>
+            <div class="flex items-center gap-3 bg-slate-50 rounded-xl p-4"><i data-lucide="truck" class="w-5 h-5 text-emerald-700"></i><p>Estimasi tiba <span class="font-bold text-slate-800">2-4 hari kerja</span> untuk wilayah Jabodetabek</p></div>
+            <div class="flex items-center gap-3 bg-slate-50 rounded-xl p-4"><i data-lucide="banknote" class="w-5 h-5 text-emerald-700"></i><p>Gratis ongkir untuk pembelian di atas <span class="font-bold text-slate-800">Rp150.000</span></p></div>
+          </div>
+        </div>
+
+        <!-- Produk Serupa -->
+        <div class="mt-10 lg:mt-14">
+          <h2 class="text-xl font-extrabold text-slate-900 mb-5 tracking-tight">Produk Serupa</h2>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/kopi-toraja/400/400" alt="Kopi Toraja" class="w-full aspect-square object-cover"></a>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Toraja Kalosi 200gr</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 890 terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp92.000</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/kopi-bali/400/400" alt="Kopi Kintamani" class="w-full aspect-square object-cover"></a>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Kopi Kintamani Bali 250gr</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,7 <span class="text-slate-300">|</span> 654 terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp78.000</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/teh-telang/400/400" alt="Teh Bunga Telang" class="w-full aspect-square object-cover"></a>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Teh Bunga Telang Kering 100gr</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,9 <span class="text-slate-300">|</span> 412 terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp38.000</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+              <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/gula-aren/400/400" alt="Gula Aren" class="w-full aspect-square object-cover"></a>
+              <div class="p-3.5">
+                <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 line-clamp-1 hover:text-emerald-700">Gula Aren Cair Banten 500ml</a>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 1,1rb terjual</div>
+                <p class="font-extrabold text-emerald-800 mt-2">Rp42.000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

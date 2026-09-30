@@ -1,0 +1,156 @@
+    <!-- ==================== Public Product List Page ==================== -->
+    <section data-page="products" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 py-6 lg:py-10">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <a href="#" onclick="go('home'); return false;" class="hover:text-emerald-700">Beranda</a>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          <span class="font-semibold text-slate-800">Semua Produk</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          <!-- Filter Sidebar (desktop) -->
+          <aside class="hidden lg:block w-64 shrink-0">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 sticky top-24 space-y-6">
+              <div>
+                <h3 class="font-bold text-sm text-slate-900 mb-3">Kategori</h3>
+                <div class="space-y-2 text-sm text-slate-600">
+                  <label class="flex items-center gap-2.5 cursor-pointer hover:text-emerald-700"><input type="checkbox" checked class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Semua Produk</label>
+                  <label class="flex items-center gap-2.5 cursor-pointer hover:text-emerald-700"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Kopi & Minuman</label>
+                  <label class="flex items-center gap-2.5 cursor-pointer hover:text-emerald-700"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Camilan</label>
+                  <label class="flex items-center gap-2.5 cursor-pointer hover:text-emerald-700"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Fashion</label>
+                  <label class="flex items-center gap-2.5 cursor-pointer hover:text-emerald-700"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Kerajinan</label>
+                </div>
+              </div>
+              <div class="border-t border-slate-100 pt-5">
+                <h3 class="font-bold text-sm text-slate-900 mb-3">Rentang Harga</h3>
+                <div class="flex items-center gap-2">
+                  <input type="text" placeholder="Rp Min" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <span class="text-slate-400 text-sm">-</span>
+                  <input type="text" placeholder="Rp Maks" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+              </div>
+              <div class="border-t border-slate-100 pt-5">
+                <h3 class="font-bold text-sm text-slate-900 mb-3">Rating minimum</h3>
+                <div class="space-y-2 text-sm text-slate-600">
+                  <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="rating" class="w-4 h-4 border-slate-300 text-emerald-600 focus:ring-emerald-500"> <span class="flex items-center gap-0.5"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,5 ke atas</span></label>
+                  <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="rating" class="w-4 h-4 border-slate-300 text-emerald-600 focus:ring-emerald-500"> <span class="flex items-center gap-0.5"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,0 ke atas</span></label>
+                  <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="rating" checked class="w-4 h-4 border-slate-300 text-emerald-600 focus:ring-emerald-500"> Semua rating</label>
+                </div>
+              </div>
+              <div class="border-t border-slate-100 pt-5">
+                <h3 class="font-bold text-sm text-slate-900 mb-3">Ketersediaan</h3>
+                <div class="space-y-2 text-sm text-slate-600">
+                  <label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Tersedia</label>
+                  <label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"> Sedang promo</label>
+                </div>
+              </div>
+              <button onclick="toast('Filter diterapkan','success')" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm py-2.5 rounded-xl transition">Terapkan Filter</button>
+            </div>
+          </aside>
+
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+              <button onclick="openFilterDrawer()" class="lg:hidden flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold hover:border-emerald-300 transition"><i data-lucide="sliders-horizontal" class="w-4 h-4"></i> Filter</button>
+              <p class="text-sm text-slate-500"><span class="font-bold text-slate-800">1.284</span> produk ditemukan</p>
+              <select onchange="toast('Urutan diubah: '+this.value,'success')" class="ml-auto bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <option>Paling sesuai</option><option>Terbaru</option><option>Harga terendah</option><option>Harga tertinggi</option><option>Terlaris</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="relative">
+                  <a href="#" onclick="go('product'); return false;"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kopi-gayo/500/500'" alt="Kopi Gayo Arabika" class="w-full aspect-square object-cover"></a>
+                  <span class="absolute top-3 left-3 bg-orange-500 text-white text-[11px] font-bold px-2 py-1 rounded-lg">-15%</span>
+                  <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                </div>
+                <div class="p-3.5">
+                  <p class="text-[11px] text-slate-400 font-medium">Kopi & Minuman</p>
+                  <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">Kopi Gayo Arabika 250gr</a>
+                  <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,9 <span class="text-slate-300">|</span> 1,2rb terjual</div>
+                  <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp85.000</span><span class="text-xs text-slate-400 line-through">Rp100.000</span></div>
+                  <button onclick="addToCart('Kopi Gayo Arabika 250gr')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="relative">
+                  <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/keripik-singkong/500/500" alt="Keripik Singkong" class="w-full aspect-square object-cover"></a>
+                  <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                </div>
+                <div class="p-3.5">
+                  <p class="text-[11px] text-slate-400 font-medium">Camilan</p>
+                  <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">Keripik Singkong Balado 200gr</a>
+                  <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 3,4rb terjual</div>
+                  <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp25.000</span></div>
+                  <button onclick="addToCart('Keripik Singkong Balado')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="relative">
+                  <a href="#" onclick="go('product'); return false;"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/tas-anyaman/500/500'" alt="Tas Anyaman" class="w-full aspect-square object-cover"></a>
+                  <span class="absolute top-3 left-3 bg-orange-500 text-white text-[11px] font-bold px-2 py-1 rounded-lg">-16%</span>
+                  <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                </div>
+                <div class="p-3.5">
+                  <p class="text-[11px] text-slate-400 font-medium">Kerajinan</p>
+                  <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">Tas Anyaman Rotan Kalimantan</a>
+                  <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,9 <span class="text-slate-300">|</span> 486 terjual</div>
+                  <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp189.000</span><span class="text-xs text-slate-400 line-through">Rp225.000</span></div>
+                  <button onclick="addToCart('Tas Anyaman Rotan Kalimantan')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="relative">
+                  <a href="#" onclick="go('product'); return false;"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/serum-wajah/500/500'" alt="Serum Wajah" class="w-full aspect-square object-cover"></a>
+                  <span class="absolute top-3 left-3 bg-orange-500 text-white text-[11px] font-bold px-2 py-1 rounded-lg">-17%</span>
+                  <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                </div>
+                <div class="p-3.5">
+                  <p class="text-[11px] text-slate-400 font-medium">Perawatan</p>
+                  <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">Serum Wajah Pencerah 30ml</a>
+                  <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,7 <span class="text-slate-300">|</span> 2,1rb terjual</div>
+                  <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp125.000</span><span class="text-xs text-slate-400 line-through">Rp150.000</span></div>
+                  <button onclick="addToCart('Serum Wajah Pencerah 30ml')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="relative">
+                  <a href="#" onclick="go('product'); return false;"><img src="https://picsum.photos/seed/madu-hutan/500/500" alt="Madu Hutan" class="w-full aspect-square object-cover"></a>
+                  <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                </div>
+                <div class="p-3.5">
+                  <p class="text-[11px] text-slate-400 font-medium">Sembako</p>
+                  <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">Madu Hutan Sumbawa 500ml</a>
+                  <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>4,8 <span class="text-slate-300">|</span> 92 terjual</div>
+                  <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp95.000</span></div>
+                  <button onclick="addToCart('Madu Hutan Sumbawa 500ml')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="relative">
+                  <a href="#" onclick="go('product'); return false;"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/kemeja-tenun/500/500'" alt="Kemeja Tenun" class="w-full aspect-square object-cover"></a>
+                  <button onclick="toggleWish(this)" class="absolute top-2.5 right-2.5 w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center text-slate-400 hover:text-rose-500 transition shadow-sm" aria-label="Wishlist"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                </div>
+                <div class="p-3.5">
+                  <p class="text-[11px] text-slate-400 font-medium">Fashion</p>
+                  <a href="#" onclick="go('product'); return false;" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">Kemeja Tenun Ikat Sumba</a>
+                  <div class="flex items-center gap-1 text-xs text-slate-500 mt-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>5,0 <span class="text-slate-300">|</span> 31 terjual</div>
+                  <div class="mt-2 flex items-baseline gap-1.5"><span class="font-extrabold text-emerald-800">Rp245.000</span></div>
+                  <button onclick="addToCart('Kemeja Tenun Ikat Sumba')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-1.5 mt-8">
+              <button class="w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-400 flex items-center justify-center hover:border-emerald-300 transition" aria-label="Sebelumnya"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+              <button class="w-9 h-9 rounded-xl bg-emerald-700 text-white text-sm font-bold flex items-center justify-center">1</button>
+              <button onclick="toast('Halaman 2 dimuat','success')" class="w-9 h-9 rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-600 flex items-center justify-center hover:border-emerald-300 transition">2</button>
+              <button onclick="toast('Halaman 3 dimuat','success')" class="w-9 h-9 rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-600 flex items-center justify-center hover:border-emerald-300 transition">3</button>
+              <span class="px-1 text-slate-400 text-sm">...</span>
+              <button onclick="toast('Halaman 12 dimuat','success')" class="w-9 h-9 rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-600 flex items-center justify-center hover:border-emerald-300 transition">12</button>
+              <button onclick="toast('Halaman berikutnya dimuat','success')" class="w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 flex items-center justify-center hover:border-emerald-300 transition" aria-label="Berikutnya"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

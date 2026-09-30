@@ -1,0 +1,89 @@
+<!-- ==================== Admin Vouchers Page ==================== -->
+<section data-admin-page="a-vouchers" class="apage hidden">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900 tracking-tight">Voucher & Promo</h1>
+      <p class="text-sm text-slate-500 mt-0.5">4 voucher aktif - 128 kali dipakai bulan ini</p>
+    </div>
+    <button onclick="toast('Form tambah voucher dibuka (demo)','success')" class="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-md shadow-emerald-700/20"><i data-lucide="plus" class="w-4 h-4"></i> Tambah Voucher</button>
+  </div>
+
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+    <!-- Voucher HEMAT20 -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="flex items-start justify-between">
+        <span class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center"><i data-lucide="ticket" class="w-5 h-5 text-emerald-600"></i></span>
+        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">Aktif</span>
+      </div>
+      <p class="font-extrabold text-lg text-slate-900 mt-4 tracking-wide">HEMAT20</p>
+      <p class="text-sm text-slate-500 mt-1">Diskon 20% maks. Rp50.000, min. belanja Rp150.000</p>
+      <dl class="grid grid-cols-2 gap-3 mt-4 text-sm">
+        <div><dt class="text-xs text-slate-400">Dipakai</dt><dd class="font-bold text-slate-800">128 / 500</dd></div>
+        <div><dt class="text-xs text-slate-400">Berlaku sampai</dt><dd class="font-bold text-slate-800">31 Okt 2026</dd></div>
+      </dl>
+      <div class="flex gap-2 mt-5">
+        <button onclick="toast('Voucher HEMAT20 diedit (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Edit</button>
+        <button onclick="copyText('HEMAT20')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="copy" class="w-3.5 h-3.5"></i> Salin Kode</button>
+        <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus voucher"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+      </div>
+    </div>
+
+    <!-- Voucher ONGKIRGRATIS -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="flex items-start justify-between">
+        <span class="w-11 h-11 rounded-xl bg-sky-50 flex items-center justify-center"><i data-lucide="truck" class="w-5 h-5 text-sky-600"></i></span>
+        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">Aktif</span>
+      </div>
+      <p class="font-extrabold text-lg text-slate-900 mt-4 tracking-wide">ONGKIRGRATIS</p>
+      <p class="text-sm text-slate-500 mt-1">Gratis ongkir se-Indonesia, min. belanja Rp100.000</p>
+      <dl class="grid grid-cols-2 gap-3 mt-4 text-sm">
+        <div><dt class="text-xs text-slate-400">Dipakai</dt><dd class="font-bold text-slate-800">342 / 1000</dd></div>
+        <div><dt class="text-xs text-slate-400">Berlaku sampai</dt><dd class="font-bold text-slate-800">31 Des 2026</dd></div>
+      </dl>
+      <div class="flex gap-2 mt-5">
+        <button onclick="toast('Voucher ONGKIRGRATIS diedit (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Edit</button>
+        <button onclick="copyText('ONGKIRGRATIS')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="copy" class="w-3.5 h-3.5"></i> Salin Kode</button>
+        <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus voucher"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+      </div>
+    </div>
+
+    <!-- Voucher UMKMBAKTI -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="flex items-start justify-between">
+        <span class="w-11 h-11 rounded-xl bg-orange-50 flex items-center justify-center"><i data-lucide="percent" class="w-5 h-5 text-orange-600"></i></span>
+        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">Aktif</span>
+      </div>
+      <p class="font-extrabold text-lg text-slate-900 mt-4 tracking-wide">UMKMBAKTI</p>
+      <p class="text-sm text-slate-500 mt-1">Potongan Rp10.000 untuk pembelian produk kopi</p>
+      <dl class="grid grid-cols-2 gap-3 mt-4 text-sm">
+        <div><dt class="text-xs text-slate-400">Dipakai</dt><dd class="font-bold text-slate-800">56 / 200</dd></div>
+        <div><dt class="text-xs text-slate-400">Berlaku sampai</dt><dd class="font-bold text-slate-800">15 Okt 2026</dd></div>
+      </dl>
+      <div class="flex gap-2 mt-5">
+        <button onclick="toast('Voucher UMKMBAKTI diedit (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Edit</button>
+        <button onclick="copyText('UMKMBAKTI')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition flex items-center justify-center gap-1.5"><i data-lucide="copy" class="w-3.5 h-3.5"></i> Salin Kode</button>
+        <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus voucher"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+      </div>
+    </div>
+
+    <!-- Voucher HARLAH17 (nonaktif) -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-5 opacity-70">
+      <div class="flex items-start justify-between">
+        <span class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center"><i data-lucide="party-popper" class="w-5 h-5 text-slate-400"></i></span>
+        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500">Berakhir</span>
+      </div>
+      <p class="font-extrabold text-lg text-slate-900 mt-4 tracking-wide">HARLAH17</p>
+      <p class="text-sm text-slate-500 mt-1">Diskon 17% khusus HUT RI, sudah berakhir</p>
+      <dl class="grid grid-cols-2 gap-3 mt-4 text-sm">
+        <div><dt class="text-xs text-slate-400">Dipakai</dt><dd class="font-bold text-slate-800">200 / 200</dd></div>
+        <div><dt class="text-xs text-slate-400">Berlaku sampai</dt><dd class="font-bold text-slate-800">17 Agu 2026</dd></div>
+      </dl>
+      <div class="flex gap-2 mt-5">
+        <button onclick="toast('Voucher HARLAH17 diaktifkan kembali (demo)','success')" class="flex-1 border border-slate-200 text-slate-600 hover:border-emerald-300 font-semibold text-xs py-2 rounded-xl transition">Aktifkan Lagi</button>
+        <button onclick="openModal('modal-delete')" class="border border-red-200 text-red-600 hover:bg-red-50 font-semibold text-xs py-2 px-3 rounded-xl transition" aria-label="Hapus voucher"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-xs text-slate-400 mt-5">Demo: hanya kode <span class="font-bold text-slate-500">HEMAT20</span> yang berfungsi di halaman keranjang toko publik.</p>
+</section>

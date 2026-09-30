@@ -1,0 +1,18 @@
+  <div id="modal-cancel-order" class="hidden fixed inset-0 z-[80] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-slate-900/60" onclick="closeModal('modal-cancel-order')"></div>
+    <div class="relative bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
+          <i data-lucide="package-x" class="w-5 h-5 text-amber-600"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">Batalkan pesanan #INV-2841?</h3>
+          <p class="text-sm text-slate-500 mt-1">Pesanan akan dibatalkan dan dana dikembalikan ke pembeli dalam 1x24 jam. Status tidak dapat diubah kembali.</p>
+        </div>
+      </div>
+      <div class="flex justify-end gap-3 mt-6">
+        <button onclick="closeModal('modal-cancel-order')" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-600 border border-slate-200 hover:bg-slate-50 transition">Tidak</button>
+        <button onclick="closeModal('modal-cancel-order'); toast('Pesanan #INV-2841 dibatalkan','error')" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-red-600 hover:bg-red-700 transition">Batalkan Pesanan</button>
+      </div>
+    </div>
+  </div>

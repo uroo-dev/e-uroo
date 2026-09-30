@@ -1,0 +1,28 @@
+/* NusantaraMart - custom styles (Tailwind Play CDN menangani sisanya) */
+
+/* Toast masuk */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-item { animation: toast-in 0.2s ease-out; }
+.toast-item.toast-out { opacity: 0; transform: translateY(8px); transition: opacity 0.25s, transform 0.25s; }
+
+/* Sidebar admin mode ciut (toggleAdminCollapse) */
+#admin-sidebar.admin-collapsed { width: 5rem; }
+#admin-sidebar.admin-collapsed .side-label { display: none; }
+#admin-sidebar.admin-collapsed nav button,
+#admin-sidebar.admin-collapsed .p-3 button { justify-content: center; padding-left: 0; padding-right: 0; }
+
+/* Scrollbar halus untuk panel sidebar & tabel */
+#admin-sidebar nav::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar { height: 6px; width: 6px; }
+#admin-sidebar nav::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.35); border-radius: 9999px; }
+
+/* Skeleton shimmer dashboard */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+#dash-skeleton .animate-pulse { animation: skeleton-pulse 1.4s ease-in-out infinite; }

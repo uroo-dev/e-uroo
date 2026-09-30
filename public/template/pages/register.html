@@ -1,0 +1,44 @@
+    <!-- ==================== Public Register Page ==================== -->
+    <section data-page="register" class="page hidden">
+      <div class="min-h-[70vh] flex items-center justify-center px-4 py-12">
+        <div class="w-full max-w-md">
+          <div class="text-center mb-8">
+            <span class="w-12 h-12 mx-auto rounded-2xl bg-emerald-700 flex items-center justify-center"><i data-lucide="leaf" class="w-6 h-6 text-white"></i></span>
+            <h1 class="text-2xl font-extrabold text-slate-900 mt-4 tracking-tight">Buat akun baru</h1>
+            <p class="text-sm text-slate-500 mt-1.5">Gratis, hanya butuh satu menit</p>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <form onsubmit="event.preventDefault(); toast('Pendaftaran berhasil! Silakan cek email Anda','success'); go('login')">
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nama lengkap</label>
+                  <input type="text" value="Rina Sulastri" class="w-full bg-slate-50 border border-emerald-300 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <p class="text-xs text-emerald-700 font-medium mt-1.5 flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Nama terlihat bagus</p>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Email aktif</label>
+                  <input type="email" placeholder="nama@email.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nomor telepon</label>
+                  <input type="tel" placeholder="08xxxxxxxxxx" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-slate-700 mb-1.5">Kata sandi</label>
+                  <div class="relative">
+                    <input id="pw-register" type="password" placeholder="Minimal 8 karakter" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <button type="button" onclick="togglePassword('pw-register',this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" aria-label="Tampilkan kata sandi"><i data-lucide="eye" class="w-4 h-4"></i></button>
+                  </div>
+                </div>
+                <label class="flex items-start gap-2.5 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600 mt-0.5">
+                  <span class="text-xs text-slate-500">Saya menyetujui <a href="#" onclick="return false;" class="font-semibold text-emerald-700 hover:underline">Syarat & Ketentuan</a> serta <a href="#" onclick="return false;" class="font-semibold text-emerald-700 hover:underline">Kebijakan Privasi</a> NusantaraMart</span>
+                </label>
+                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-md shadow-emerald-700/20">Daftar Sekarang</button>
+              </div>
+            </form>
+          </div>
+          <p class="text-center text-sm text-slate-500 mt-6">Sudah punya akun? <a href="#" onclick="go('login'); return false;" class="font-bold text-emerald-700 hover:text-emerald-800">Masuk di sini</a></p>
+        </div>
+      </div>
+    </section>
