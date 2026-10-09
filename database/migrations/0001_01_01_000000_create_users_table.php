@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('role')->default('pelanggan');
+            $table->enum('role', ['admin', 'petugas', 'pelanggan'])->default('pelanggan');
             $table->string('phone', 20)->nullable();
             $table->string('avatar')->nullable();
             $table->rememberToken();
