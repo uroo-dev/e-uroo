@@ -4,19 +4,40 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password', 'role', 'phone', 'avatar'])]
-#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'role',
+        'phone',
+        'avatar',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
     /**
      * Get the attributes that should be cast.
@@ -31,28 +52,33 @@ class User extends Authenticatable
         ];
     }
 
-    public function address():HasMany
+    public function addresses(): HasMany
     {
-        return $this->hasMany(Addres::class);
+        return $this->hasMany(Address::class);
     }
 
-    public function carts():HasMany
+    public function cart(): HasOne
     {
-        return $this->hasMany(Carts::class);
+        return $this->hasOne(Cart::class);
     }
 
-    public function orders():HasMany
+    public function carts(): HasMany
     {
-        return $this->hasMany(Orders::class);
+        return $this->hasMany(Cart::class);
     }
 
-    public function payment():HasMany
+    public function orders(): HasMany
     {
-        return $this->hasMany(Payments::class);
+        return $this->hasMany(Order::class);
     }
 
-    public function order_status():HasMany
+    public function verifiedPayments(): HasMany
     {
-        return $this->hasMany(OrderStatusLogs::class);
+        return $this->hasMany(Payment::class, 'verified_by');
+    }
+
+    public function orderStatusLogs(): HasMany
+    {
+        return $this->hasMany(OrderStatusLog::class, 'changed_by');
     }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('order_status_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-            $table->enum('status', ['Success', 'Failled']);
-            $table->text('note');
-            $table->foreignId('change_by')->constrained('users')->onDelete('cascade');
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
+            $table->string('status');
+            $table->text('note')->nullable();
+            $table->foreignId('changed_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

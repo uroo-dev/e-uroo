@@ -2,12 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductImage extends Model
 {
-    protected $table = 'product_images';
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'product_id',
         'image_path',
@@ -15,8 +22,21 @@ class ProductImage extends Model
         'sort_order',
     ];
 
-    public function product():BelongsTo
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
     {
-        return $this->belongsTo(Products::class);
+        return [
+            'is_primary' => 'boolean',
+            'sort_order' => 'integer',
+        ];
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
     }
 }

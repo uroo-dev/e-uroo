@@ -13,16 +13,26 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('order_number');
-            $table->enum('status', ['Chekout', 'Cart']);
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->string('order_number')->unique();
+            $table->string('status')->default('pending');
             $table->decimal('subtotal', 12, 2);
-            $table->decimal('shoping_cost', 12, 2);
-            $table->decimal('discount_amount');
-            $table->decimal('grand_total');
-            $table->string('payment_method');
-            $table->enum('payment_status', ['Success', 'Pending', 'Failed'])->default('Pending');
+            $table->decimal('shipping_cost', 12, 2)->default(0);
+            $table->decimal('discount_amount', 12, 2)->default(0);
+            $table->decimal('grand_total', 12, 2);
+            $table->string('payment_method')->nullable();
+            $table->string('payment_status')->default('unpaid');
+            $table->string('shipping_courier')->nullable();
+            $table->string('shipping_service')->nullable();
+            $table->string('tracking_number')->nullable();
             $table->string('recipient_name');
+            $table->string('recipient_phone', 20);
+            $table->text('shipping_address');
+            $table->text('notes')->nullable();
+            $table->timestamp('expired_at')->nullable();
+            $table->timestamp('paid_at')->nullable();
+            $table->timestamp('shipped_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });
     }
