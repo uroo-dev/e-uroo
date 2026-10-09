@@ -40,4 +40,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Carts::class);
     }
+
+    public function orders():HasMany
+    {
+        return $this->hasMany(Orders::class);
+    }
+
+    public function payment():HasMany
+    {
+        return $this->hasMany(Payments::class);
+    }
+
+    public function order_status():HasMany
+    {
+        return $this->hasMany(OrderStatusLogs::class);
+    }
 }
