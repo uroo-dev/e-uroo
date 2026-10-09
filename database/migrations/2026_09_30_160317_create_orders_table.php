@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('discount_amount', 12, 2)->default(0);
             $table->decimal('grand_total', 12, 2);
             $table->string('payment_method')->nullable();
-            $table->string('payment_status')->default('unpaid');
+            $table->enum('payment_status', ['paid', 'pending', 'unpaid'])->default('unpaid');
             $table->string('shipping_courier')->nullable();
             $table->string('shipping_service')->nullable();
             $table->string('tracking_number')->nullable();
