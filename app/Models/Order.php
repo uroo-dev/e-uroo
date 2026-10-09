@@ -21,21 +21,15 @@ class Order extends Model
         'order_number',
         'status',
         'subtotal',
-        'shipping_cost',
         'discount_amount',
         'grand_total',
         'payment_method',
         'payment_status',
-        'shipping_courier',
-        'shipping_service',
-        'tracking_number',
         'recipient_name',
         'recipient_phone',
-        'shipping_address',
         'notes',
         'expired_at',
         'paid_at',
-        'shipped_at',
         'completed_at',
     ];
 
@@ -48,12 +42,10 @@ class Order extends Model
     {
         return [
             'subtotal' => 'decimal:2',
-            'shipping_cost' => 'decimal:2',
             'discount_amount' => 'decimal:2',
             'grand_total' => 'decimal:2',
             'expired_at' => 'datetime',
             'paid_at' => 'datetime',
-            'shipped_at' => 'datetime',
             'completed_at' => 'datetime',
         ];
     }

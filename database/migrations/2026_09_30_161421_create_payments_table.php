@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('method');
             $table->decimal('amount', 12, 2);
             $table->string('proof_image')->nullable();
-            $table->string('status')->default('pending');
+            $table->enum('status', ['pending', 'verified', 'rejected'])->default('pending');
             $table->text('rejection_reason')->nullable();
             $table->foreignId('verified_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('verified_at')->nullable();
