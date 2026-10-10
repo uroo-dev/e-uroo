@@ -16,7 +16,7 @@ class AuthController extends Controller
      */
     public function login_index()
     {
-        //
+        return view('Auth.login.index');
     }
 
     /**
@@ -31,14 +31,18 @@ class AuthController extends Controller
 
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
-            return redirect()
-                ->intended('/')
-                ->with('success', 'Selamat Datang Kembali' . Auth::user()->name);
+            $request->user()->forceFill(['last_login' => now()])->save();
+
+            return match ($request->user()->role) {
+                'admin' => redirect()->route('admin.dashboard')->with('success', 'Selamat Datang Kembali'.Auth::user()->name)
+                // 'petugas' => redirect()->route()->with('success', 'Selamat Datang Kembali' . Auth::user()->name)
+                // 'pelanggan' => redirect()->route()->with('success', 'Selamat Datang Kembali' . Auth::user()->name)
+            };
         }
+
         return back()->withErrors([
-            'name' => 'Username Atau Password Salah'
-        ])
-            ->onlyInput('name');
+            'name' => 'Username Atau Password Salah',
+        ])->onlyInput('name');
     }
 
     /**
@@ -79,10 +83,10 @@ class AuthController extends Controller
 
         Auth::login($user);
         $request->session()->regenerate();
+        $request->user()->forceFill(['last_login' => now()])->save();
 
         return redirect()->intended();
     }
-
 
     /**
      * Remove the specified resource from storage.

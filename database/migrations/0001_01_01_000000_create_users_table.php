@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('role', ['admin', 'petugas', 'pelanggan'])->default('pelanggan');
             $table->string('phone', 20)->nullable();
             $table->string('avatar')->nullable();
+            $table->timestamp('last_login')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
