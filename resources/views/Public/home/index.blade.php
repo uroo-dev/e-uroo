@@ -11,38 +11,37 @@
 <!-- HERO SECTION - Natural, Clean, High-Converting Agricultural Store Banner -->
 <section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('{{ $heroImage }}');">
     
-    <!-- Natural Subtle Contrast Dark Gradient (Left to Right) for Legibility -->
-    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/65 to-transparent z-0"></div>
-
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <!-- Left Hero Copy & Search Bar -->
-            <div class="lg:col-span-8 text-white space-y-6" data-aos="fade-right">
+            <div class="lg:col-span-8 space-y-6" data-aos="fade-right">
                 
                 <!-- Trust Tag -->
-                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-900/80 border border-brand-500/40 text-brand-200 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md">
-                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-300"></i>
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/95 border border-brand-300 text-brand-900 text-xs sm:text-sm font-bold tracking-wide shadow-sm backdrop-blur-md">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i>
                     <span>{{ setting('hero_badge', 'Langsung dari Lahan Perkebunan PT • Bebas Pestisida Berbahaya') }}</span>
                 </div>
 
                 <!-- Big Headline -->
-                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-earth-sand">
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-brand-950">
                     {{ setting('hero_title', 'Panen Segar Perkebunan Langsung ke') }}
-                    <span class="text-brand-300 block">{{ setting('hero_title_highlight', 'Meja Anda') }}</span>
+                    <span class="text-brand-600 block mt-1">{{ setting('hero_title_highlight', 'Meja Anda') }}</span>
                 </h1>
 
                 <!-- Subheadline -->
-                <p class="text-brand-100/90 text-base sm:text-xl max-w-2xl leading-relaxed font-normal">
-                    {{ setting('hero_subtitle', 'Dipetik harian langsung dari kebun & perkebunan kami. Nikmati aneka komoditas unggulan: Kopi Spesialti, Kelapa Sawit olahan, Beras Merah Organik, Sayuran Higienis, dan Buah Segar Nusantara.') }}
-                </p>
+                <div class="max-w-2xl bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-white/90 shadow-sm">
+                    <p class="text-brand-950 text-base sm:text-lg leading-relaxed font-semibold">
+                        {{ setting('hero_subtitle', 'Dipetik harian langsung dari kebun & perkebunan kami. Nikmati aneka komoditas unggulan: Kopi Spesialti, Kelapa Sawit olahan, Beras Merah Organik, Sayuran Higienis, dan Buah Segar Nusantara.') }}
+                    </p>
+                </div>
 
                 <!-- Hero E-Commerce Quick Search -->
                 <div class="pt-2 max-w-xl">
-                    <form action="{{ route('products.index') }}" method="GET" class="flex flex-col sm:flex-row gap-2 bg-white/95 p-2 rounded-2xl shadow-xl backdrop-blur-md border border-white/40">
+                    <form action="{{ route('products.index') }}" method="GET" class="flex flex-col sm:flex-row gap-2 bg-white p-2 rounded-2xl shadow-xl border border-brand-200">
                         <div class="flex-1 flex items-center px-3 space-x-2">
                             <i data-lucide="search" class="w-5 h-5 text-brand-600 shrink-0"></i>
-                            <input type="text" name="search" placeholder="Cari hasil panen, beras, kopi, sayur segar..." class="w-full bg-transparent text-brand-dark placeholder-gray-400 text-sm focus:outline-none py-2">
+                            <input type="text" name="search" placeholder="Cari hasil panen, beras, kopi, sayur segar..." class="w-full bg-transparent text-brand-dark placeholder-gray-500 text-sm focus:outline-none py-2 font-medium">
                         </div>
                         <button type="submit" class="bg-earth-terracotta hover:bg-earth-rust text-white px-6 py-3 rounded-xl font-bold text-sm transition-all shadow-md flex items-center justify-center space-x-1 shrink-0">
                             <span>Cari Hasil Panen</span>
@@ -52,28 +51,28 @@
 
                 <!-- Action Buttons & Quick Stats -->
                 <div class="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
-                    <a href="{{ setting('hero_cta_link', '#products') }}" class="px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2">
+                    <a href="{{ setting('hero_cta_link', '#products') }}" class="px-8 py-4 rounded-full bg-brand-700 hover:bg-brand-800 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span>{{ setting('hero_cta_text', 'Belanja Hasil Panen') }}</span>
                     </a>
-                    <a href="{{ setting('hero_secondary_link', '#subscription') }}" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-base backdrop-blur-md transition-all flex items-center space-x-2">
-                        <i data-lucide="box" class="w-5 h-5 text-brand-300"></i>
+                    <a href="{{ setting('hero_secondary_link', '#subscription') }}" class="px-8 py-4 rounded-full bg-white hover:bg-brand-50 text-brand-900 border-2 border-brand-700 font-bold text-base shadow-md transition-all flex items-center space-x-2">
+                        <i data-lucide="box" class="w-5 h-5 text-brand-600"></i>
                         <span>{{ setting('hero_secondary_text', 'Paket Panen Mingguan') }}</span>
                     </a>
                 </div>
 
                 <!-- Quick Badges -->
-                <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-brand-200">
-                    <span class="flex items-center space-x-1.5">
-                        <i data-lucide="clock" class="w-4 h-4 text-brand-400"></i>
+                <div class="pt-4 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-bold text-brand-900">
+                    <span class="flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
+                        <i data-lucide="clock" class="w-4 h-4 text-brand-600"></i>
                         <span>Dipetik Segar Hari Ini</span>
                     </span>
-                    <span class="flex items-center space-x-1.5">
-                        <i data-lucide="truck" class="w-4 h-4 text-brand-400"></i>
+                    <span class="flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
+                        <i data-lucide="truck" class="w-4 h-4 text-brand-600"></i>
                         <span>Pengiriman Cepat Cold Chain</span>
                     </span>
-                    <span class="flex items-center space-x-1.5">
-                        <i data-lucide="rotate-ccw" class="w-4 h-4 text-brand-400"></i>
+                    <span class="flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4 text-brand-600"></i>
                         <span>Garansi 100% Kesegaran Mutu</span>
                     </span>
                 </div>
