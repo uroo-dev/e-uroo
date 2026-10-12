@@ -22,23 +22,23 @@
             </a>
 
             <nav class="hidden lg:flex items-center gap-1 ml-4 text-sm font-medium">
-                <a href="{{ route('home') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition">Beranda</a>
-                <a href="#" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition">Semua Produk</a>
-                <a href="#" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition">Kategori</a>
-                <a href="#" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition">Tentang</a>
-                <a href="#" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition">Kontak</a>
+                <a href="{{ route('home') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('home') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Beranda</a>
+                <a href="{{ route('products.index') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('products*') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Semua Produk</a>
+                @auth
+                    <a href="{{ route('orders.index') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('orders*') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Pesanan Saya</a>
+                    <a href="{{ route('profile') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('profile*') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Profil & Alamat</a>
+                @endauth
             </nav>
 
-            <div class="flex-1 relative hidden md:block max-w-md ml-auto lg:ml-6">
+            <form action="{{ route('products.index') }}" method="GET" class="flex-1 relative hidden md:block max-w-md ml-auto lg:ml-6">
                 <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                <input type="text" placeholder="Cari produk..."
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari hasil komoditas kebun & panen..."
                     class="w-full bg-white text-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400">
-            </div>
+            </form>
 
             <div class="flex items-center gap-1 ml-auto md:ml-3">
                 <a href="{{ route('cart') }}" class="relative p-2.5 rounded-xl hover:bg-emerald-800 transition" aria-label="Keranjang">
                     <i data-lucide="shopping-cart" class="w-5 h-5"></i>
-                    <span id="cart-count" class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 bg-orange-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                 </a>
                 @auth
                     @if(auth()->user()->role === 'admin')
@@ -46,7 +46,9 @@
                             <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Panel Admin
                         </a>
                     @else
-                        <span class="text-sm font-semibold text-emerald-100 ml-2 hidden sm:inline">{{ auth()->user()->name }}</span>
+                        <a href="{{ route('profile') }}" class="text-sm font-semibold text-emerald-100 hover:text-white ml-2 hidden sm:inline flex items-center gap-1.5">
+                            <i data-lucide="user" class="w-4 h-4"></i> {{ auth()->user()->name }}
+                        </a>
                     @endif
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf
@@ -61,6 +63,7 @@
                     </a>
                 @endauth
             </div>
+
         </div>
     </div>
 </header>

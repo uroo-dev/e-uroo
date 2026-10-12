@@ -81,9 +81,10 @@
                             <span class="font-bold text-slate-900">Total Tagihan</span>
                             <span class="text-xl font-extrabold text-emerald-800">Rp{{ number_format($subtotal, 0, ',', '.') }}</span>
                         </div>
-                        <button class="mt-4 w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2">
+                        <a href="{{ route('checkout') }}" class="mt-4 w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2">
                             Lanjut ke Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
+                        </a>
+
                     </div>
                 </div>
             @else

@@ -55,72 +55,31 @@
 
         <p class="side-label text-[10px] font-bold uppercase tracking-wider text-emerald-100/40 px-3 pt-4 pb-2">
             Transaksi</p>
-        <a onclick="goAdmin('a-orders')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-orders">
+        <a href="{{ route('admin.orders.index') }}"
+            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.orders*') ? $active : $side }}">
             <i class="fa-solid fa-bag-shopping w-4 text-center shrink-0"></i>
             <span class="side-label whitespace-nowrap">Pesanan</span>
         </a>
-        <a onclick="goAdmin('a-order-status')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-order-status">
-            <i class="fa-solid fa-code-branch w-4 text-center shrink-0"></i>
-            <span class="side-label whitespace-nowrap">Status Pesanan</span>
-        </a>
-        <a onclick="goAdmin('a-payments')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-payments">
+        <a href="{{ route('admin.payments.index') }}"
+            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.payments*') ? $active : $side }}">
             <i class="fa-solid fa-circle-check w-4 text-center shrink-0"></i>
             <span class="side-label whitespace-nowrap">Konfirmasi Pembayaran</span>
         </a>
 
         <p class="side-label text-[10px] font-bold uppercase tracking-wider text-emerald-100/40 px-3 pt-4 pb-2">
-            Pelanggan & Promo</p>
-        <a onclick="goAdmin('a-customers')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-customers">
+            Pelanggan & Toko</p>
+        <a href="{{ route('admin.customers.index') }}"
+            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.customers*') ? $active : $side }}">
             <i class="fa-solid fa-users w-4 text-center shrink-0"></i>
             <span class="side-label whitespace-nowrap">Data Pelanggan</span>
         </a>
-        <a onclick="goAdmin('a-vouchers')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-vouchers">
-            <i class="fa-solid fa-ticket w-4 text-center shrink-0"></i>
-            <span class="side-label whitespace-nowrap">Voucher & Promo</span>
-        </a>
-        <a onclick="goAdmin('a-banners')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-banners">
-            <i class="fa-solid fa-images w-4 text-center shrink-0"></i>
-            <span class="side-label whitespace-nowrap">Banner Beranda</span>
-        </a>
-
-        <p class="side-label text-[10px] font-bold uppercase tracking-wider text-emerald-100/40 px-3 pt-4 pb-2">Laporan
-            & Sistem</p>
-        <a onclick="goAdmin('a-reports')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-reports">
-            <i class="fa-solid fa-chart-line w-4 text-center shrink-0"></i>
-            <span class="side-label whitespace-nowrap">Laporan Penjualan</span>
-        </a>
-        <a onclick="goAdmin('a-settings')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-settings">
-            <i class="fa-solid fa-gear w-4 text-center shrink-0"></i>
-            <span class="side-label whitespace-nowrap">Pengaturan Toko</span>
-        </a>
-        <a onclick="goAdmin('a-profile')"
-            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition"
-            data-anav="a-profile">
-            <i class="fa-solid fa-user-gear w-4 text-center shrink-0"></i>
-            <span class="side-label whitespace-nowrap">Profil Admin</span>
-        </a>
     </nav>
     <div class="p-3 border-t border-emerald-900 shrink-0">
-        <a onclick="openStore()"
+        <a href="{{ route('home') }}" target="_blank"
             class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-emerald-100/80 hover:bg-emerald-900 hover:text-white transition text-sm">
             <i class="fa-solid fa-arrow-up-right-from-square w-4 text-center shrink-0"></i>
             <span class="side-label whitespace-nowrap">Lihat Toko Publik</span>
         </a>
     </div>
 </aside>
+
