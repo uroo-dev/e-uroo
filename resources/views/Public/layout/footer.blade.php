@@ -6,27 +6,44 @@
             <!-- Brand Info -->
             <div class="lg:col-span-2 space-y-4">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 group">
-                    <span class="w-10 h-10 rounded-2xl bg-brand-500 flex items-center justify-center text-earth-sand shadow-inner">
-                        <i data-lucide="sprout" class="w-6 h-6"></i>
-                    </span>
+                    @if(setting('site_logo'))
+                        <span class="w-10 h-10 rounded-2xl bg-white/10 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-inner">
+                            <img src="{{ asset('storage/' . setting('site_logo')) }}" alt="{{ setting('site_name', 'E-UROO') }}" class="w-full h-full object-contain">
+                        </span>
+                    @else
+                        <span class="w-10 h-10 rounded-2xl bg-brand-500 flex items-center justify-center text-earth-sand shadow-inner">
+                            <i data-lucide="sprout" class="w-6 h-6"></i>
+                        </span>
+                    @endif
                     <div>
-                        <span class="font-display font-bold text-xl text-earth-sand">E-UROO PERKEBUNAN</span>
-                        <span class="text-[10px] tracking-widest text-brand-300 font-semibold uppercase block">PT Agro Nusantara</span>
+                        <span class="font-display font-bold text-xl text-earth-sand">{{ setting('site_name', 'E-UROO PERKEBUNAN') }}</span>
+                        <span class="text-[10px] tracking-widest text-brand-300 font-semibold uppercase block">{{ setting('site_tagline', 'PT Agro Nusantara') }}</span>
                     </div>
                 </a>
                 <p class="text-brand-200/80 text-xs sm:text-sm leading-relaxed max-w-sm">
-                    Platform e-commerce resmi penyedia komoditas pertanian dan perkebunan berkualitas tinggi langsung dari lahan PT. Kami menjamin panen segar harian, bebas bahan berbahaya, dengan harga adil dari produsen utama.
+                    {{ setting('footer_about', 'Platform e-commerce resmi penyedia komoditas pertanian dan perkebunan berkualitas tinggi langsung dari lahan PT. Kami menjamin panen segar harian, bebas bahan berbahaya, dengan harga adil dari produsen utama.') }}
                 </p>
                 <div class="flex items-center space-x-3 pt-2">
-                    <a href="#" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="Facebook">
-                        <i data-lucide="facebook" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="Instagram">
-                        <i data-lucide="instagram" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="Twitter">
-                        <i data-lucide="twitter" class="w-4 h-4"></i>
-                    </a>
+                    @if(setting('social_facebook'))
+                        <a href="{{ setting('social_facebook') }}" target="_blank" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                    @endif
+                    @if(setting('social_instagram'))
+                        <a href="{{ setting('social_instagram') }}" target="_blank" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                    @endif
+                    @if(setting('social_twitter'))
+                        <a href="{{ setting('social_twitter') }}" target="_blank" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="Twitter">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                    @endif
+                    @if(setting('social_whatsapp'))
+                        <a href="{{ setting('social_whatsapp') }}" target="_blank" class="w-8 h-8 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-brand-200 hover:text-white transition-colors" aria-label="WhatsApp">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    @endif
                 </div>
             </div>
 
@@ -53,9 +70,11 @@
                         <li><a href="{{ route('login') }}" class="hover:text-white transition-colors">Masuk Akun</a></li>
                         <li><a href="{{ route('register') }}" class="hover:text-white transition-colors">Daftar Pelanggan</a></li>
                     @endauth
-                    <li><a href="#keunggulan" class="hover:text-white transition-colors">Garansi Kesegaran 100%</a></li>
-                    <li><a href="#petani" class="hover:text-white transition-colors">Tim Petani Kebun PT</a></li>
-                    <li><a href="tel:081234567890" class="hover:text-white transition-colors">Bantuan: (0812) 3456-7890</a></li>
+                    <li><a href="{{ setting('footer_link_terms', '#') }}" class="hover:text-white transition-colors">Syarat & Ketentuan</a></li>
+                    <li><a href="{{ setting('footer_link_privacy', '#') }}" class="hover:text-white transition-colors">Kebijakan Privasi</a></li>
+                    <li><a href="{{ setting('footer_link_faq', '#') }}" class="hover:text-white transition-colors">FAQ & Bantuan</a></li>
+                    @php $phone = setting('site_phone', '(0812) 3456-7890'); @endphp
+                    <li><a href="tel:{{ preg_replace('/[^0-9]/', '', $phone) }}" class="hover:text-white transition-colors">Bantuan: {{ $phone }}</a></li>
                 </ul>
             </div>
 
@@ -75,7 +94,7 @@
 
         <!-- Bottom Legal & Payment Icons -->
         <div class="pt-8 text-center text-xs text-brand-200/60 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 PT E-UROO AGRO NUSANTARA. Seluruh hak cipta dilindungi.</p>
+            <p>{{ setting('footer_copyright', '© 2026 PT E-UROO AGRO NUSANTARA. Seluruh hak cipta dilindungi.') }}</p>
             <div class="flex items-center space-x-4 text-brand-300">
                 <span class="text-[11px]">Metode Pembayaran Resmi:</span>
                 <span class="inline-flex items-center gap-1 bg-brand-900/80 px-2 py-1 rounded border border-brand-700/60 text-[11px] font-bold text-earth-sand">

@@ -73,6 +73,11 @@
             <i class="fa-solid fa-users w-4 text-center shrink-0"></i>
             <span class="side-label whitespace-nowrap">Data Pelanggan</span>
         </a>
+        <a href="{{ route('admin.settings.index') }}"
+            class="anav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.settings*') ? $active : $side }}">
+            <i class="fa-solid fa-gear w-4 text-center shrink-0"></i>
+            <span class="side-label whitespace-nowrap">Pengaturan Web</span>
+        </a>
     </nav>
     <div class="p-3 border-t border-emerald-900 shrink-0">
         <a href="{{ route('home') }}" target="_blank"

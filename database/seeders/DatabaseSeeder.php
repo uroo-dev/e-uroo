@@ -420,5 +420,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now()->subDay(),
             ]
         );
+
+        $this->call(SettingSeeder::class);
     }
 }

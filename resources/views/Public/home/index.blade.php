@@ -3,8 +3,13 @@
 @section('title', 'E-UROO - Panen Segar Perkebunan PT Langsung ke Meja Anda')
 
 @section('content')
+@php
+    $heroImage = setting('hero_image') 
+        ? asset('storage/' . setting('hero_image')) 
+        : asset('template/assets/image/hero.jpeg');
+@endphp
 <!-- HERO SECTION - Natural, Clean, High-Converting Agricultural Store Banner -->
-<section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('{{ asset('template/assets/image/hero.jpeg') }}');">
+<section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('{{ $heroImage }}');">
     
     <!-- Natural Subtle Contrast Dark Gradient (Left to Right) for Legibility -->
     <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/65 to-transparent z-0"></div>
@@ -18,17 +23,18 @@
                 <!-- Trust Tag -->
                 <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-900/80 border border-brand-500/40 text-brand-200 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md">
                     <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-300"></i>
-                    <span>Langsung dari Lahan Perkebunan PT • Bebas Pestisida Berbahaya</span>
+                    <span>{{ setting('hero_badge', 'Langsung dari Lahan Perkebunan PT • Bebas Pestisida Berbahaya') }}</span>
                 </div>
 
                 <!-- Big Headline -->
                 <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-earth-sand">
-                    Panen Segar Perkebunan Langsung ke <span class="text-brand-300 block">Meja Anda</span>
+                    {{ setting('hero_title', 'Panen Segar Perkebunan Langsung ke') }}
+                    <span class="text-brand-300 block">{{ setting('hero_title_highlight', 'Meja Anda') }}</span>
                 </h1>
 
                 <!-- Subheadline -->
                 <p class="text-brand-100/90 text-base sm:text-xl max-w-2xl leading-relaxed font-normal">
-                    Dipetik harian langsung dari kebun & perkebunan kami. Nikmati aneka komoditas unggulan: Kopi Spesialti, Kelapa Sawit olahan, Beras Merah Organik, Sayuran Higienis, dan Buah Segar Nusantara.
+                    {{ setting('hero_subtitle', 'Dipetik harian langsung dari kebun & perkebunan kami. Nikmati aneka komoditas unggulan: Kopi Spesialti, Kelapa Sawit olahan, Beras Merah Organik, Sayuran Higienis, dan Buah Segar Nusantara.') }}
                 </p>
 
                 <!-- Hero E-Commerce Quick Search -->
@@ -46,13 +52,13 @@
 
                 <!-- Action Buttons & Quick Stats -->
                 <div class="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
-                    <a href="#products" class="px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2">
+                    <a href="{{ setting('hero_cta_link', '#products') }}" class="px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                        <span>Belanja Hasil Panen</span>
+                        <span>{{ setting('hero_cta_text', 'Belanja Hasil Panen') }}</span>
                     </a>
-                    <a href="#subscription" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-base backdrop-blur-md transition-all flex items-center space-x-2">
+                    <a href="{{ setting('hero_secondary_link', '#subscription') }}" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-base backdrop-blur-md transition-all flex items-center space-x-2">
                         <i data-lucide="box" class="w-5 h-5 text-brand-300"></i>
-                        <span>Paket Panen Mingguan</span>
+                        <span>{{ setting('hero_secondary_text', 'Paket Panen Mingguan') }}</span>
                     </a>
                 </div>
 
@@ -88,7 +94,7 @@
 <!-- PRODUCT CATEGORIES GRID SECTION -->
 <section id="categories" class="py-16 bg-earth-cream relative z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
             <div>
                 <span class="text-earth-terracotta font-bold text-xs uppercase tracking-widest">Pilihan Hasil Panen Segar</span>
@@ -129,7 +135,7 @@
 <!-- FEATURED PRODUCTS GRID -->
 <section id="products" class="py-16 bg-brand-50 relative z-20 border-t border-brand-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
             <div>
                 <span class="text-earth-terracotta font-bold text-xs uppercase tracking-widest">Panen Unggulan Terbaik</span>
@@ -149,7 +155,7 @@
                         <!-- Image Container -->
                         <div class="relative overflow-hidden rounded-2xl h-52 mb-4 bg-gray-100">
                             <span class="absolute top-3 left-3 bg-brand-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10 shadow-sm">PANEN SEGAR</span>
-                            
+
                             <a href="{{ route('products.show', $product->slug) }}" class="block w-full h-full">
                                 @if($product->main_image)
                                     <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -179,7 +185,7 @@
                         <div>
                             <div class="font-display font-bold text-xl text-earth-terracotta">Rp{{ number_format($product->price, 0, ',', '.') }}</div>
                         </div>
-                        
+
                         <form action="{{ route('cart.store') }}" method="POST" class="inline">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -212,17 +218,17 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
                 <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-brand-800 text-brand-200 text-xs font-bold uppercase tracking-wider border border-brand-700">
                     <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-400"></i>
                     <span>Paket Panen Rutin PT Perkebunan</span>
                 </span>
-                
+
                 <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-earth-sand leading-tight">
                     Langganan Paket Panen Segar Mingguan Bebas Ribet
                 </h2>
-                
+
                 <p class="text-brand-100/90 text-sm sm:text-base leading-relaxed">
                     Dapatkan kurasi hasil kebun terbaik setiap minggu: kombinasi sayuran segar, buah tropis matang di pohon, kopi Nusantara, dan beras organik langsung ke alamat Anda dengan opsi pembayaran fleksibel (COD atau QRIS).
                 </p>
@@ -263,7 +269,7 @@
 <!-- MEET OUR PLANTERS & AGRONOMISTS -->
 <section id="farmers" class="py-20 bg-earth-cream relative z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <span class="text-earth-terracotta font-bold text-xs uppercase tracking-widest">Dedikasi Pertanian Nusantara</span>
             <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-900 mt-1">Kenali Tim Petani & Agronomis Kebun PT</h2>
@@ -271,7 +277,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
+
             <!-- Planter Card 1 -->
             <div class="bg-white p-5 rounded-3xl border border-brand-100 shadow-sm text-center group" data-aos="fade-up" data-aos-delay="100">
                 <div class="overflow-hidden rounded-2xl mb-4 h-60">
@@ -320,7 +326,7 @@
 <section id="keunggulan" class="py-12 bg-brand-100/60 border-y border-brand-200/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             <div class="flex items-center space-x-4 bg-white p-6 rounded-2xl border border-brand-200/50 shadow-sm">
                 <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center shrink-0">
                     <i data-lucide="truck" class="w-6 h-6"></i>

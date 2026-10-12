@@ -4,18 +4,19 @@
         <div class="flex items-center space-x-4">
             <span class="flex items-center space-x-1.5 font-medium">
                 <i data-lucide="truck" class="w-3.5 h-3.5 text-brand-300"></i>
-                <span>Gratis Ongkir Pembelian di Atas Rp150.000!</span>
+                <span>{{ setting('announcement_text', 'Gratis Ongkir Pembelian di Atas Rp150.000!') }}</span>
             </span>
             <span class="hidden md:inline-block text-brand-700">|</span>
             <span class="hidden md:flex items-center space-x-1.5">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-300"></i>
-                <span>100% Panen Kebun PT Tersertifikasi Organik</span>
+                <span>{{ setting('announcement_subtext', '100% Panen Kebun PT Tersertifikasi Organik') }}</span>
             </span>
         </div>
         <div class="flex items-center space-x-4 text-xs">
-            <a href="tel:081234567890" class="hover:text-white transition-colors flex items-center space-x-1">
+            @php $phone = setting('site_phone', '(0812) 3456-7890'); @endphp
+            <a href="tel:{{ preg_replace('/[^0-9]/', '', $phone) }}" class="hover:text-white transition-colors flex items-center space-x-1">
                 <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-300"></i>
-                <span class="hidden sm:inline">Layanan Kebun: (0812) 3456-7890</span>
+                <span class="hidden sm:inline">Layanan Kebun: {{ $phone }}</span>
             </a>
             <span class="text-brand-700">|</span>
             <span class="text-brand-300 font-semibold">COD & QRIS Tersedia</span>
@@ -35,12 +36,18 @@
 
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center space-x-3 group shrink-0">
-                <span class="w-11 h-11 rounded-2xl bg-brand-500 flex items-center justify-center text-earth-sand shadow-inner group-hover:scale-105 transition-transform">
-                    <i data-lucide="sprout" class="w-6 h-6"></i>
-                </span>
+                @if(setting('site_logo'))
+                    <span class="w-11 h-11 rounded-2xl bg-white/10 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                        <img src="{{ asset('storage/' . setting('site_logo')) }}" alt="{{ setting('site_name', 'E-UROO') }}" class="w-full h-full object-contain">
+                    </span>
+                @else
+                    <span class="w-11 h-11 rounded-2xl bg-brand-500 flex items-center justify-center text-earth-sand shadow-inner group-hover:scale-105 transition-transform shrink-0">
+                        <i data-lucide="sprout" class="w-6 h-6"></i>
+                    </span>
+                @endif
                 <div>
-                    <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-earth-sand block leading-none">E-UROO</span>
-                    <span class="text-[10px] tracking-widest text-brand-300 font-semibold uppercase block mt-1">Perkebunan PT</span>
+                    <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-earth-sand block leading-none">{{ setting('site_name', 'E-UROO') }}</span>
+                    <span class="text-[10px] tracking-widest text-brand-300 font-semibold uppercase block mt-1">{{ setting('site_tagline', 'Perkebunan PT') }}</span>
                 </div>
             </a>
 
@@ -119,8 +126,14 @@
     <div class="absolute left-0 top-0 bottom-0 w-80 max-w-[85%] bg-brand-dark text-white shadow-2xl flex flex-col border-r border-brand-800">
         <div class="flex items-center justify-between px-5 h-20 bg-brand-900 border-b border-brand-800">
             <span class="flex items-center space-x-2 font-display font-bold text-lg text-earth-sand">
-                <span class="w-8 h-8 rounded-xl bg-brand-500 flex items-center justify-center text-white"><i data-lucide="sprout" class="w-4 h-4"></i></span>
-                <span>E-UROO PERKEBUNAN</span>
+                @if(setting('site_logo'))
+                    <span class="w-8 h-8 rounded-xl bg-white/10 p-0.5 flex items-center justify-center overflow-hidden shrink-0">
+                        <img src="{{ asset('storage/' . setting('site_logo')) }}" alt="{{ setting('site_name', 'E-UROO') }}" class="w-full h-full object-contain">
+                    </span>
+                @else
+                    <span class="w-8 h-8 rounded-xl bg-brand-500 flex items-center justify-center text-white"><i data-lucide="sprout" class="w-4 h-4"></i></span>
+                @endif
+                <span>{{ setting('site_name', 'E-UROO PERKEBUNAN') }}</span>
             </span>
             <button onclick="toggleMobileMenu()" class="p-2 rounded-xl text-brand-300 hover:text-white hover:bg-brand-800 transition" aria-label="Tutup menu">
                 <i data-lucide="x" class="w-5 h-5"></i>
