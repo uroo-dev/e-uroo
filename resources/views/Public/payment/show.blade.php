@@ -23,7 +23,7 @@
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold mb-4">
                     <i data-lucide="qr-code" class="w-3.5 h-3.5"></i> QRIS & Rekening Resmi PT
                 </span>
-                
+
                 <!-- Mockup QR Code -->
                 <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl w-52 h-52 mx-auto flex flex-col items-center justify-center shadow-inner">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=PT_EUROO_PERKEBUNAN_{{ $order->order_number }}_{{ $order->grand_total }}" alt="QRIS E-UROO" class="w-44 h-44 rounded-lg">

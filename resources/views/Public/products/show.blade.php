@@ -20,7 +20,7 @@
                 $mainImg = $product->main_image ? asset('storage/' . $product->main_image) : 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80&auto=format&fit=crop';
             @endphp
             <img id="gallery-main" src="{{ $mainImg }}" alt="{{ $product->name }}" class="w-full aspect-square object-cover rounded-2xl border border-slate-200 bg-white">
-            
+
             @if($product->images->isNotEmpty())
                 <div class="grid grid-cols-4 gap-3 mt-3">
                     <button type="button" onclick="document.getElementById('gallery-main').src='{{ $mainImg }}'" class="ring-2 ring-emerald-600 rounded-xl overflow-hidden">
