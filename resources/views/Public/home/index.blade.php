@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- HERO SECTION - Natural, Clean, High-Converting Agricultural Store Banner -->
-<section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=2000');">
+<section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('{{ asset('template/assets/image/hero.jpeg') }}');">
     
     <!-- Natural Subtle Contrast Dark Gradient (Left to Right) for Legibility -->
     <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/65 to-transparent z-0"></div>
