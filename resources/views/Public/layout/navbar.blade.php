@@ -1,65 +1,110 @@
-<!-- Promo Bar -->
-<div class="bg-orange-500 text-white text-xs sm:text-sm">
-    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-2 text-center">
-        <i data-lucide="truck" class="w-4 h-4 shrink-0"></i>
-        <p class="font-medium">Gratis ongkir ke seluruh Indonesia untuk pembelian di atas Rp150.000</p>
+<!-- Top Announcement Bar -->
+<div class="bg-brand-900 text-brand-100 text-xs py-2 px-4 border-b border-brand-800">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <span class="flex items-center space-x-1.5 font-medium">
+                <i data-lucide="truck" class="w-3.5 h-3.5 text-brand-300"></i>
+                <span>Gratis Ongkir Pembelian di Atas Rp150.000!</span>
+            </span>
+            <span class="hidden md:inline-block text-brand-700">|</span>
+            <span class="hidden md:flex items-center space-x-1.5">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-300"></i>
+                <span>100% Panen Kebun PT Tersertifikasi Organik</span>
+            </span>
+        </div>
+        <div class="flex items-center space-x-4 text-xs">
+            <a href="tel:081234567890" class="hover:text-white transition-colors flex items-center space-x-1">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-300"></i>
+                <span class="hidden sm:inline">Layanan Kebun: (0812) 3456-7890</span>
+            </a>
+            <span class="text-brand-700">|</span>
+            <span class="text-brand-300 font-semibold">COD & QRIS Tersedia</span>
+        </div>
     </div>
 </div>
 
-<!-- Public Navbar -->
-<header class="bg-emerald-900 text-white sticky top-0 z-40 shadow-md">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="flex items-center gap-3 h-16">
-            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 -ml-2 rounded-xl hover:bg-emerald-800 transition" aria-label="Buka menu">
+<!-- Main Navigation Header (Glassmorphic) -->
+<header class="sticky top-0 z-40 w-full transition-all duration-300 nav-glass border-b border-brand-800/80 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 gap-4">
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-brand-200 hover:text-white hover:bg-brand-800/60 transition" aria-label="Buka menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
 
-            <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
-                <span class="w-9 h-9 rounded-xl bg-emerald-500 flex items-center justify-center">
-                    <i data-lucide="leaf" class="w-5 h-5 text-emerald-950"></i>
+            <!-- Brand Logo -->
+            <a href="{{ route('home') }}" class="flex items-center space-x-3 group shrink-0">
+                <span class="w-11 h-11 rounded-2xl bg-brand-500 flex items-center justify-center text-earth-sand shadow-inner group-hover:scale-105 transition-transform">
+                    <i data-lucide="sprout" class="w-6 h-6"></i>
                 </span>
-                <span class="font-extrabold text-lg tracking-tight hidden sm:block">E-<span class="text-emerald-400">UROO</span></span>
+                <div>
+                    <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-earth-sand block leading-none">E-UROO</span>
+                    <span class="text-[10px] tracking-widest text-brand-300 font-semibold uppercase block mt-1">Perkebunan PT</span>
+                </div>
             </a>
 
-            <nav class="hidden lg:flex items-center gap-1 ml-4 text-sm font-medium">
-                <a href="{{ route('home') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('home') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Beranda</a>
-                <a href="{{ route('products.index') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('products*') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Semua Produk</a>
+            <!-- Search Bar -->
+            <form action="{{ route('products.index') }}" method="GET" class="flex-1 max-w-md hidden md:flex items-center bg-white rounded-full p-1 shadow-inner border border-brand-200/50">
+                <div class="flex-1 flex items-center pl-3.5 pr-2">
+                    <i data-lucide="search" class="w-4 h-4 text-brand-600 mr-2 shrink-0"></i>
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari hasil panen, kopi, beras, buah..."
+                        class="w-full bg-transparent text-brand-dark placeholder-gray-400 text-xs sm:text-sm focus:outline-none py-1.5">
+                </div>
+                <button type="submit" class="bg-earth-terracotta hover:bg-earth-rust text-white px-4 py-2 rounded-full font-bold text-xs transition shadow-sm flex items-center space-x-1 shrink-0">
+                    <span>Cari</span>
+                </button>
+            </form>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-1 text-sm font-semibold">
+                <a href="{{ route('home') }}" class="px-3.5 py-2 rounded-xl hover:text-brand-200 hover:bg-brand-800/50 transition {{ request()->routeIs('home') ? 'text-brand-300 bg-brand-800/80' : 'text-brand-100' }}">Beranda</a>
+                <a href="{{ route('products.index') }}" class="px-3.5 py-2 rounded-xl hover:text-brand-200 hover:bg-brand-800/50 transition {{ request()->routeIs('products*') ? 'text-brand-300 bg-brand-800/80' : 'text-brand-100' }}">Semua Produk</a>
                 @auth
-                    <a href="{{ route('orders.index') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('orders*') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Pesanan Saya</a>
-                    <a href="{{ route('profile') }}" class="px-3 py-2 rounded-xl hover:bg-emerald-800 transition {{ request()->routeIs('profile*') ? 'bg-emerald-800 text-emerald-300 font-bold' : '' }}">Profil & Alamat</a>
+                    <a href="{{ route('orders.index') }}" class="px-3.5 py-2 rounded-xl hover:text-brand-200 hover:bg-brand-800/50 transition {{ request()->routeIs('orders*') ? 'text-brand-300 bg-brand-800/80' : 'text-brand-100' }}">Pesanan Saya</a>
+                    <a href="{{ route('profile') }}" class="px-3.5 py-2 rounded-xl hover:text-brand-200 hover:bg-brand-800/50 transition {{ request()->routeIs('profile*') ? 'text-brand-300 bg-brand-800/80' : 'text-brand-100' }}">Profil & Alamat</a>
                 @endauth
             </nav>
 
-            <form action="{{ route('products.index') }}" method="GET" class="flex-1 relative hidden md:block max-w-md ml-auto lg:ml-6">
-                <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari hasil komoditas kebun & panen..."
-                    class="w-full bg-white text-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400">
-            </form>
-
-            <div class="flex items-center gap-1 ml-auto md:ml-3">
-                <a href="{{ route('cart') }}" class="relative p-2.5 rounded-xl hover:bg-emerald-800 transition" aria-label="Keranjang">
-                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <!-- Right Actions (Cart & Auth) -->
+            <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+                <!-- Cart Button -->
+                <a href="{{ route('cart') }}" class="flex items-center space-x-2 bg-brand-500 hover:bg-brand-600 text-white px-3.5 py-2 rounded-full font-bold text-xs transition shadow-md active:scale-95 relative" aria-label="Keranjang Belanja">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Keranjang</span>
+                    @php 
+                        $cartCount = auth()->check() ? (auth()->user()->cart?->items()->sum('quantity') ?? 0) : 0; 
+                    @endphp
+                    @if($cartCount > 0)
+                        <span class="bg-earth-terracotta text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                            {{ $cartCount }}
+                        </span>
+                    @endif
                 </a>
+
                 @auth
                     @if(auth()->user()->role === 'admin')
-                        <a href="{{ route('admin.dashboard') }}" class="hidden sm:flex items-center gap-2 ml-2 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 text-sm font-bold px-4 py-2.5 rounded-xl transition">
-                            <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Panel Admin
+                        <a href="{{ route('admin.dashboard') }}" class="hidden sm:flex items-center space-x-1.5 bg-earth-sand text-brand-dark hover:bg-white text-xs font-bold px-3 py-2 rounded-full transition shadow-sm">
+                            <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-brand-700"></i>
+                            <span>Admin</span>
                         </a>
                     @else
-                        <a href="{{ route('profile') }}" class="text-sm font-semibold text-emerald-100 hover:text-white ml-2 hidden sm:inline flex items-center gap-1.5">
-                            <i data-lucide="user" class="w-4 h-4"></i> {{ auth()->user()->name }}
+                        <a href="{{ route('profile') }}" class="hidden sm:flex items-center space-x-1.5 text-xs font-semibold text-brand-100 hover:text-white px-2 py-1 rounded-lg">
+                            <i data-lucide="user" class="w-3.5 h-3.5 text-brand-300"></i>
+                            <span class="max-w-[100px] truncate">{{ auth()->user()->name }}</span>
                         </a>
                     @endif
+
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf
-                        <button type="submit" class="p-2.5 rounded-xl hover:bg-emerald-800 transition text-sm text-emerald-200 hover:text-white" title="Keluar">
-                            <i data-lucide="log-out" class="w-5 h-5"></i>
+                        <button type="submit" class="p-2 rounded-xl text-brand-200 hover:text-white hover:bg-brand-800/60 transition" title="Keluar">
+                            <i data-lucide="log-out" class="w-4 h-4"></i>
                         </button>
                     </form>
                 @else
-                    <a href="{{ route('login') }}" class="hidden sm:flex items-center gap-2 ml-2 pl-3 border-l border-emerald-700 text-sm font-medium hover:text-emerald-300 transition">
-                        <i data-lucide="user" class="w-5 h-5"></i>
-                        <span class="hidden lg:block">Masuk</span>
+                    <a href="{{ route('login') }}" class="flex items-center space-x-1.5 text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-brand-500/40 px-3.5 py-2 rounded-full transition">
+                        <i data-lucide="user" class="w-3.5 h-3.5 text-brand-300"></i>
+                        <span>Masuk</span>
                     </a>
                 @endauth
             </div>
@@ -70,24 +115,62 @@
 
 <!-- Mobile Menu Drawer -->
 <div id="mobile-menu" class="hidden fixed inset-0 z-50 lg:hidden">
-    <div class="absolute inset-0 bg-slate-900/60" onclick="toggleMobileMenu()"></div>
-    <div class="absolute left-0 top-0 bottom-0 w-80 max-w-[85%] bg-white shadow-2xl flex flex-col">
-        <div class="flex items-center justify-between px-4 h-16 bg-emerald-900 text-white">
-            <span class="flex items-center gap-2 font-extrabold">
-                <span class="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center"><i data-lucide="leaf" class="w-4 h-4 text-emerald-950"></i></span>
-                E-UROO
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-80 max-w-[85%] bg-brand-dark text-white shadow-2xl flex flex-col border-r border-brand-800">
+        <div class="flex items-center justify-between px-5 h-20 bg-brand-900 border-b border-brand-800">
+            <span class="flex items-center space-x-2 font-display font-bold text-lg text-earth-sand">
+                <span class="w-8 h-8 rounded-xl bg-brand-500 flex items-center justify-center text-white"><i data-lucide="sprout" class="w-4 h-4"></i></span>
+                <span>E-UROO PERKEBUNAN</span>
             </span>
-            <button onclick="toggleMobileMenu()" class="p-2 rounded-xl hover:bg-emerald-800 transition" aria-label="Tutup menu"><i data-lucide="x" class="w-5 h-5"></i></button>
+            <button onclick="toggleMobileMenu()" class="p-2 rounded-xl text-brand-300 hover:text-white hover:bg-brand-800 transition" aria-label="Tutup menu">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
         </div>
-        <nav class="flex-1 overflow-y-auto p-3 space-y-1 text-sm font-medium text-slate-700">
-            <a href="{{ route('home') }}" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"><i data-lucide="home" class="w-4 h-4 text-slate-400"></i>Beranda</a>
-            <a href="{{ route('cart') }}" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"><i data-lucide="shopping-cart" class="w-4 h-4 text-slate-400"></i>Keranjang</a>
+
+        <!-- Mobile Search -->
+        <div class="p-4 border-b border-brand-800">
+            <form action="{{ route('products.index') }}" method="GET" class="flex items-center bg-white rounded-xl overflow-hidden p-1">
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari hasil panen..."
+                    class="w-full bg-transparent text-brand-dark placeholder-gray-400 text-xs px-2.5 py-1.5 focus:outline-none">
+                <button type="submit" class="bg-earth-terracotta text-white p-2 rounded-lg">
+                    <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                </button>
+            </form>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto p-4 space-y-1.5 text-sm font-semibold text-brand-100">
+            <a href="{{ route('home') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-brand-800 hover:text-white transition">
+                <i data-lucide="home" class="w-4 h-4 text-brand-400"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="{{ route('products.index') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-brand-800 hover:text-white transition">
+                <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-400"></i>
+                <span>Semua Produk</span>
+            </a>
+            <a href="{{ route('cart') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-brand-800 hover:text-white transition">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-brand-400"></i>
+                <span>Keranjang Belanja</span>
+            </a>
             @auth
+                <a href="{{ route('orders.index') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-brand-800 hover:text-white transition">
+                    <i data-lucide="receipt" class="w-4 h-4 text-brand-400"></i>
+                    <span>Pesanan Saya</span>
+                </a>
+                <a href="{{ route('profile') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-brand-800 hover:text-white transition">
+                    <i data-lucide="user" class="w-4 h-4 text-brand-400"></i>
+                    <span>Profil & Alamat</span>
+                </a>
                 @if(auth()->user()->role === 'admin')
-                    <a href="{{ route('admin.dashboard') }}" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-emerald-900 text-white hover:bg-emerald-800 transition mt-2"><i data-lucide="layout-dashboard" class="w-4 h-4 text-emerald-400"></i>Panel Admin</a>
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl bg-brand-800 text-earth-sand hover:bg-brand-700 transition mt-2">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4 text-brand-300"></i>
+                        <span>Panel Admin</span>
+                    </a>
                 @endif
             @else
-                <a href="{{ route('login') }}" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"><i data-lucide="log-in" class="w-4 h-4 text-slate-400"></i>Masuk / Daftar</a>
+                <a href="{{ route('login') }}" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl bg-brand-800 text-earth-sand hover:bg-brand-700 transition mt-2">
+                    <i data-lucide="log-in" class="w-4 h-4 text-brand-300"></i>
+                    <span>Masuk / Daftar</span>
+                </a>
             @endauth
         </nav>
     </div>

@@ -1,139 +1,357 @@
 @extends('Public.layout.app')
 
-@section('title', 'E-UROO - Hasil Pertanian & Perkebunan Unggulan')
+@section('title', 'E-UROO - Panen Segar Perkebunan PT Langsung ke Meja Anda')
 
 @section('content')
-<!-- Hero Section -->
-<div class="bg-emerald-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-            <p class="inline-flex items-center gap-2 bg-emerald-800 text-emerald-200 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Langsung dari Lahan Pertanian & Perkebunan PT
-            </p>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
-                Hasil Tani Berkualitas,<br>Segar & Terpercaya
-            </h1>
-            <p class="text-emerald-100/90 mt-4 max-w-md leading-relaxed">
-                Menyediakan komoditas hasil perkebunan dan pertanian pilihan langsung dari sumbernya dengan jaminan kualitas terbaik dan harga terjangkau.
-            </p>
-            <div class="flex flex-wrap gap-3 mt-7">
-                <a href="{{ route('products.index') }}" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-orange-900/30 flex items-center gap-2">
-                    Belanja Sekarang <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-                <a href="#kategori" class="bg-emerald-800 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl text-sm transition border border-emerald-700">
-                    Lihat Kategori
-                </a>
-            </div>
-        </div>
-        <div class="relative hidden lg:block">
-            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/pertanian/800/600'" alt="Kebun Pertanian" class="rounded-2xl shadow-2xl object-cover w-full aspect-[4/3]">
-            <div class="absolute -bottom-5 -left-5 bg-white text-slate-800 rounded-2xl shadow-xl p-4 flex items-center gap-3">
-                <span class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center">
-                    <i data-lucide="badge-check" class="w-5 h-5 text-emerald-600"></i>
-                </span>
-                <div>
-                    <p class="font-bold text-sm">100% Panen Segar</p>
-                    <p class="text-xs text-slate-500">Kualitas grade premium tersertifikasi</p>
+<!-- HERO SECTION - Natural, Clean, High-Converting Agricultural Store Banner -->
+<section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=2000');">
+    
+    <!-- Natural Subtle Contrast Dark Gradient (Left to Right) for Legibility -->
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/65 to-transparent z-0"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Hero Copy & Search Bar -->
+            <div class="lg:col-span-8 text-white space-y-6" data-aos="fade-right">
+                
+                <!-- Trust Tag -->
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-900/80 border border-brand-500/40 text-brand-200 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-300"></i>
+                    <span>Langsung dari Lahan Perkebunan PT • Bebas Pestisida Berbahaya</span>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Trust Strip -->
-<div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 py-5 grid grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-        <div class="flex items-center gap-3"><i data-lucide="truck" class="w-5 h-5 text-emerald-700"></i><div><p class="font-semibold text-slate-900">Pengiriman Cepat</p><p class="text-xs text-slate-500">Panen langsung dikirim</p></div></div>
-        <div class="flex items-center gap-3"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-700"></i><div><p class="font-semibold text-slate-900">Pembayaran Mudah</p><p class="text-xs text-slate-500">Transfer QRIS & COD</p></div></div>
-        <div class="flex items-center gap-3"><i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-700"></i><div><p class="font-semibold text-slate-900">Garansi Kualitas</p><p class="text-xs text-slate-500">Segar sampai tujuan</p></div></div>
-        <div class="flex items-center gap-3"><i data-lucide="headphones" class="w-5 h-5 text-emerald-700"></i><div><p class="font-semibold text-slate-900">Pelayanan Prima</p><p class="text-xs text-slate-500">Konsultasi hasil kebun</p></div></div>
-    </div>
-</div>
+                <!-- Big Headline -->
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-earth-sand">
+                    Panen Segar Perkebunan Langsung ke <span class="text-brand-300 block">Meja Anda</span>
+                </h1>
 
-<!-- Kategori Populer -->
-<div id="kategori" class="max-w-7xl mx-auto px-4 py-12 lg:py-16">
-    <div class="flex items-end justify-between mb-6">
-        <div>
-            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Kategori Komoditas</h2>
-            <p class="text-sm text-slate-500 mt-1">Pilihan hasil perkebunan dan pertanian pilihan</p>
-        </div>
-        <a href="{{ route('products.index') }}" class="text-sm font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
-            Semua produk <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-    </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
-        @forelse($categories as $category)
-            <a href="{{ route('products.index', ['category' => $category->id]) }}" class="group bg-white border border-slate-200 rounded-2xl p-4 text-center hover:border-emerald-300 hover:shadow-md transition">
-                <span class="w-12 h-12 mx-auto rounded-xl bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-100 transition overflow-hidden">
-                    @if($category->image)
-                        <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="w-full h-full object-cover rounded-xl">
-                    @else
-                        <i data-lucide="sprout" class="w-6 h-6 text-emerald-700"></i>
-                    @endif
-                </span>
-                <p class="text-sm font-semibold mt-3 text-slate-800 line-clamp-1">{{ $category->name }}</p>
-                <p class="text-xs text-slate-400 mt-0.5">{{ $category->products_count }} produk</p>
-            </a>
-        @empty
-            <div class="col-span-full py-8 text-center text-slate-400 text-sm">
-                Belum ada kategori yang terdaftar.
-            </div>
-        @endforelse
-    </div>
-</div>
+                <!-- Subheadline -->
+                <p class="text-brand-100/90 text-base sm:text-xl max-w-2xl leading-relaxed font-normal">
+                    Dipetik harian langsung dari kebun & perkebunan kami. Nikmati aneka komoditas unggulan: Kopi Spesialti, Kelapa Sawit olahan, Beras Merah Organik, Sayuran Higienis, dan Buah Segar Nusantara.
+                </p>
 
-<!-- Produk Unggulan -->
-<div class="bg-white border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 py-12 lg:py-16">
-        <div class="flex items-end justify-between mb-6">
-            <div>
-                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Produk Unggulan Kebun</h2>
-                <p class="text-sm text-slate-500 mt-1">Komoditas hasil panen segar siap kirim</p>
-            </div>
-            <a href="{{ route('products.index') }}" class="text-sm font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
-                Lihat semua <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-        </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            @forelse($featuredProducts as $product)
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition flex flex-col justify-between">
-                    <div class="relative">
-                        <a href="{{ route('products.show', $product->slug) }}">
-                            @if($product->main_image)
-                                <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}" class="w-full aspect-square object-cover">
-                            @else
-                                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&q=80&auto=format&fit=crop" alt="{{ $product->name }}" class="w-full aspect-square object-cover">
-                            @endif
-                        </a>
-                        <span class="absolute top-3 left-3 bg-emerald-700 text-white text-[11px] font-bold px-2 py-1 rounded-lg">Panen Baru</span>
-                    </div>
-                    <div class="p-3.5 flex-1 flex flex-col justify-between">
-                        <div>
-                            <p class="text-[11px] text-slate-400 font-medium">{{ $product->category->name ?? 'Pertanian' }}</p>
-                            <a href="{{ route('products.show', $product->slug) }}" class="block font-semibold text-sm text-slate-800 mt-0.5 line-clamp-1 hover:text-emerald-700">
-                                {{ $product->name }}
-                            </a>
-                            <div class="mt-2 flex items-baseline gap-1.5">
-                                <span class="font-extrabold text-emerald-800">Rp{{ number_format($product->price, 0, ',', '.') }}</span>
-                            </div>
-                            <p class="text-xs text-slate-400 mt-1">Stok: {{ $product->stock }}</p>
+                <!-- Hero E-Commerce Quick Search -->
+                <div class="pt-2 max-w-xl">
+                    <form action="{{ route('products.index') }}" method="GET" class="flex flex-col sm:flex-row gap-2 bg-white/95 p-2 rounded-2xl shadow-xl backdrop-blur-md border border-white/40">
+                        <div class="flex-1 flex items-center px-3 space-x-2">
+                            <i data-lucide="search" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                            <input type="text" name="search" placeholder="Cari hasil panen, beras, kopi, sayur segar..." class="w-full bg-transparent text-brand-dark placeholder-gray-400 text-sm focus:outline-none py-2">
                         </div>
-                        <form action="{{ route('cart.store') }}" method="POST" class="mt-3">
+                        <button type="submit" class="bg-earth-terracotta hover:bg-earth-rust text-white px-6 py-3 rounded-xl font-bold text-sm transition-all shadow-md flex items-center justify-center space-x-1 shrink-0">
+                            <span>Cari Hasil Panen</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Action Buttons & Quick Stats -->
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
+                    <a href="#products" class="px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span>Belanja Hasil Panen</span>
+                    </a>
+                    <a href="#subscription" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-base backdrop-blur-md transition-all flex items-center space-x-2">
+                        <i data-lucide="box" class="w-5 h-5 text-brand-300"></i>
+                        <span>Paket Panen Mingguan</span>
+                    </a>
+                </div>
+
+                <!-- Quick Badges -->
+                <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-brand-200">
+                    <span class="flex items-center space-x-1.5">
+                        <i data-lucide="clock" class="w-4 h-4 text-brand-400"></i>
+                        <span>Dipetik Segar Hari Ini</span>
+                    </span>
+                    <span class="flex items-center space-x-1.5">
+                        <i data-lucide="truck" class="w-4 h-4 text-brand-400"></i>
+                        <span>Pengiriman Cepat Cold Chain</span>
+                    </span>
+                    <span class="flex items-center space-x-1.5">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4 text-brand-400"></i>
+                        <span>Garansi 100% Kesegaran Mutu</span>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Organic Paper-Torn Divider (Wavy Transition) -->
+    <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-20">
+        <svg class="relative block w-full h-12 sm:h-20 text-earth-cream" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- PRODUCT CATEGORIES GRID SECTION -->
+<section id="categories" class="py-16 bg-earth-cream relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+            <div>
+                <span class="text-earth-terracotta font-bold text-xs uppercase tracking-widest">Pilihan Hasil Panen Segar</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-900 mt-1">Jelajahi Kategori Komoditas</h2>
+            </div>
+            <a href="{{ route('products.index') }}" class="mt-4 md:mt-0 font-bold text-sm text-brand-600 hover:text-brand-800 flex items-center space-x-1">
+                <span>Lihat Semua Kategori</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+
+        <!-- Categories Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+            @forelse($categories as $index => $category)
+                <a href="{{ route('products.index', ['category' => $category->id]) }}" class="group bg-white p-5 rounded-3xl shadow-sm hover:shadow-organic border border-brand-100 text-center transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="{{ (($index % 5) + 1) * 75 }}">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl overflow-hidden bg-brand-50 p-1 flex items-center justify-center">
+                        @if($category->image)
+                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform">
+                        @else
+                            <div class="w-full h-full rounded-xl bg-brand-100/60 flex items-center justify-center text-brand-700">
+                                <i data-lucide="sprout" class="w-8 h-8"></i>
+                            </div>
+                        @endif
+                    </div>
+                    <h3 class="font-display font-bold text-brand-900 text-base group-hover:text-brand-600 transition-colors line-clamp-1">{{ $category->name }}</h3>
+                    <p class="text-xs text-gray-500 mt-0.5">{{ $category->products_count }} Komoditas</p>
+                </a>
+            @empty
+                <div class="col-span-full py-12 text-center text-gray-400 text-sm bg-white rounded-3xl border border-brand-100">
+                    Belum ada kategori hasil perkebunan aktif.
+                </div>
+            @endforelse
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS GRID -->
+<section id="products" class="py-16 bg-brand-50 relative z-20 border-t border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+            <div>
+                <span class="text-earth-terracotta font-bold text-xs uppercase tracking-widest">Panen Unggulan Terbaik</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-900 mt-1">Produk Unggulan Perkebunan</h2>
+            </div>
+            <a href="{{ route('products.index') }}" class="mt-4 md:mt-0 font-bold text-sm text-brand-600 hover:text-brand-800 flex items-center space-x-1">
+                <span>Lihat Katalog Lengkap</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            @forelse($featuredProducts as $index => $product)
+                <div class="bg-white rounded-3xl p-4 border border-brand-100 shadow-sm hover:shadow-organic transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="{{ (($index % 4) + 1) * 100 }}">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative overflow-hidden rounded-2xl h-52 mb-4 bg-gray-100">
+                            <span class="absolute top-3 left-3 bg-brand-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10 shadow-sm">PANEN SEGAR</span>
+                            
+                            <a href="{{ route('products.show', $product->slug) }}" class="block w-full h-full">
+                                @if($product->main_image)
+                                    <img src="{{ asset('storage/' . $product->main_image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                @else
+                                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=500" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                @endif
+                            </a>
+                        </div>
+
+                        <!-- Product Info -->
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-1">
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">({{ rand(25, 95) }})</span>
+                        </div>
+
+                        <a href="{{ route('products.show', $product->slug) }}" class="block">
+                            <h3 class="font-display font-bold text-lg text-brand-900 group-hover:text-brand-600 transition-colors line-clamp-1">{{ $product->name }}</h3>
+                        </a>
+                        <p class="text-xs text-gray-500 mb-3">{{ $product->category->name ?? 'Perkebunan PT' }} • Stok {{ $product->stock }}</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                        <div>
+                            <div class="font-display font-bold text-xl text-earth-terracotta">Rp{{ number_format($product->price, 0, ',', '.') }}</div>
+                        </div>
+                        
+                        <form action="{{ route('cart.store') }}" method="POST" class="inline">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <input type="hidden" name="quantity" value="1">
-                            <button type="submit" class="w-full bg-emerald-50 hover:bg-emerald-700 text-emerald-700 hover:text-white border border-emerald-200 font-semibold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
-                                <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Tambah Keranjang
+                            <button type="submit" class="bg-brand-500 hover:bg-brand-600 text-white p-3 rounded-2xl transition-all shadow-md active:scale-95 flex items-center space-x-1" title="Tambah ke Keranjang">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span class="text-xs font-bold px-1">Tambah</span>
                             </button>
                         </form>
                     </div>
                 </div>
             @empty
-                <div class="col-span-full py-12 text-center text-slate-400 text-sm">
-                    Belum ada produk hasil kebun yang tersedia.
+                <div class="col-span-full py-16 text-center text-gray-400 text-sm bg-white rounded-3xl border border-brand-100">
+                    Belum ada produk panen unggulan yang tersedia saat ini.
                 </div>
             @endforelse
         </div>
+
     </div>
-</div>
+</section>
+
+<!-- HARVEST BOX SUBSCRIPTION BANNER -->
+<section id="subscription" class="py-20 bg-brand-900 text-white relative overflow-hidden">
+    <!-- Organic Wavy Divider Top -->
+    <div class="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-10 transform rotate-180">
+        <svg class="relative block w-full h-8 sm:h-12 text-brand-50" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" fill="currentColor"></path>
+        </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-brand-800 text-brand-200 text-xs font-bold uppercase tracking-wider border border-brand-700">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-400"></i>
+                    <span>Paket Panen Rutin PT Perkebunan</span>
+                </span>
+                
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-earth-sand leading-tight">
+                    Langganan Paket Panen Segar Mingguan Bebas Ribet
+                </h2>
+                
+                <p class="text-brand-100/90 text-sm sm:text-base leading-relaxed">
+                    Dapatkan kurasi hasil kebun terbaik setiap minggu: kombinasi sayuran segar, buah tropis matang di pohon, kopi Nusantara, dan beras organik langsung ke alamat Anda dengan opsi pembayaran fleksibel (COD atau QRIS).
+                </p>
+
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-center space-x-3 text-xs sm:text-sm text-brand-100">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-400 shrink-0"></i>
+                        <span>100% Dipetik Pada Hari Pengiriman Berpendingin</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs sm:text-sm text-brand-100">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-400 shrink-0"></i>
+                        <span>Bebas Menyesuaikan Komposisi Komoditas Panen Tiap Minggu</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs sm:text-sm text-brand-100">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-400 shrink-0"></i>
+                        <span>Gratis Ongkir Khusus Pelanggan Paket Berlangganan</span>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex items-center space-x-4">
+                    <a href="{{ route('products.index') }}" class="px-8 py-4 rounded-full bg-earth-terracotta hover:bg-earth-rust text-white font-bold text-sm transition-all shadow-lg flex items-center space-x-2">
+                        <span>Pesan Hasil Panen Sekarang</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative" data-aos="zoom-in">
+                <div class="relative rounded-3xl overflow-hidden border-4 border-brand-500/30 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800" alt="Kotak Panen Segar PT" class="w-full h-80 object-cover">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MEET OUR PLANTERS & AGRONOMISTS -->
+<section id="farmers" class="py-20 bg-earth-cream relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-earth-terracotta font-bold text-xs uppercase tracking-widest">Dedikasi Pertanian Nusantara</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-900 mt-1">Kenali Tim Petani & Agronomis Kebun PT</h2>
+            <p class="text-gray-600 text-sm mt-2">Setiap komoditas dirawat dengan penuh dedikasi oleh tenaga ahli pertanian dan komunitas petani mitra PT.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Planter Card 1 -->
+            <div class="bg-white p-5 rounded-3xl border border-brand-100 shadow-sm text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="overflow-hidden rounded-2xl mb-4 h-60">
+                    <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=500" alt="Pak David Miller" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-earth-terracotta bg-earth-sand/50 px-3 py-1 rounded-full">Kebun Kopi Dataran Tinggi</span>
+                <h3 class="font-display font-bold text-xl text-brand-900 mt-2">David Suryanto</h3>
+                <p class="text-gray-500 text-xs mt-1">Kepala Kebun Kopi • 15 Thn Pengalaman</p>
+            </div>
+
+            <!-- Planter Card 2 -->
+            <div class="bg-white p-5 rounded-3xl border border-brand-100 shadow-sm text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="overflow-hidden rounded-2xl mb-4 h-60">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb16432?auto=format&fit=crop&q=80&w=500" alt="Ibu Elena Rostova" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-earth-terracotta bg-earth-sand/50 px-3 py-1 rounded-full">Lahan Hortikultura</span>
+                <h3 class="font-display font-bold text-xl text-brand-900 mt-2">Ir. Elena Rostova</h3>
+                <p class="text-gray-500 text-xs mt-1">Agronomis Tanah & Panen Organik</p>
+            </div>
+
+            <!-- Planter Card 3 -->
+            <div class="bg-white p-5 rounded-3xl border border-brand-100 shadow-sm text-center group" data-aos="fade-up" data-aos-delay="300">
+                <div class="overflow-hidden rounded-2xl mb-4 h-60">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=500" alt="Pak Robert Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-earth-terracotta bg-earth-sand/50 px-3 py-1 rounded-full">Estate Kelapa Sawit & Palawija</span>
+                <h3 class="font-display font-bold text-xl text-brand-900 mt-2">Robert Chen</h3>
+                <p class="text-gray-500 text-xs mt-1">Master Roaster & Pengawas Pascapanen</p>
+            </div>
+
+            <!-- Planter Card 4 -->
+            <div class="bg-white p-5 rounded-3xl border border-brand-100 shadow-sm text-center group" data-aos="fade-up" data-aos-delay="400">
+                <div class="overflow-hidden rounded-2xl mb-4 h-60">
+                    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=500" alt="Pak Arthur Pendelton" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-earth-terracotta bg-earth-sand/50 px-3 py-1 rounded-full">Lahan Padi & Beras Organik</span>
+                <h3 class="font-display font-bold text-xl text-brand-900 mt-2">Arthur Gunawan</h3>
+                <p class="text-gray-500 text-xs mt-1">Pakar Budidaya Padi Organik</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VALUE PROPOSITION / STORE BENEFITS -->
+<section id="keunggulan" class="py-12 bg-brand-100/60 border-y border-brand-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="flex items-center space-x-4 bg-white p-6 rounded-2xl border border-brand-200/50 shadow-sm">
+                <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center shrink-0">
+                    <i data-lucide="truck" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-sm">Pengiriman Ekspres Suhu Terjaga</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Dikemas rapi dalam kemasan berpendingin higienis.</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 bg-white p-6 rounded-2xl border border-brand-200/50 shadow-sm">
+                <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center shrink-0">
+                    <i data-lucide="award" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-sm">100% Panen Alami Tersertifikasi</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Bebas bahan pengawet & residu kimia berbahaya.</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 bg-white p-6 rounded-2xl border border-brand-200/50 shadow-sm">
+                <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center shrink-0">
+                    <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-sm">Garansi Mutu & Pembayaran Fleksibel</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Mendukung COD di tempat & transfer QRIS resmi.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 @endsection
