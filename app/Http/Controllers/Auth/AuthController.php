@@ -50,7 +50,7 @@ class AuthController extends Controller
      */
     public function register_index()
     {
-        //
+        return view('Auth.register.index');
     }
 
     /**
@@ -79,6 +79,10 @@ class AuthController extends Controller
 
         if ($isAdmin) {
             return redirect()->back();
+        }
+
+        if ($user->role === 'pelanggan') {
+            $user->cart()->create();
         }
 
         Auth::login($user);

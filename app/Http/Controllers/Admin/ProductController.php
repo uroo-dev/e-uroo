@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('Admin.product.index', compact('categories'));
     }
 
     /**
@@ -29,7 +32,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'category_id' => 'required|exists:categories,id',
+            'name' => 'required|string',
+            // 'slug',
+            'sku' => 'required|unique:products,sku',
+            'description' => 'nullable',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'weight' => 'required|numeric|min:0',
+            'main_image' => 'nullable|image|mimes:png,jpg',
+            'is_active' => 'required|boolean',
+        ]);
+
+        if ($request->hasFile('main_image')) {
+            $data['main_image'] = $request->file('main_image')->store('products', 'public');
+        }
+
+        Product::create($data);
+
+        return redirect()->back()->with('success', 'Success Add Product');
     }
 
     /**

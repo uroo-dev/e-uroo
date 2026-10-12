@@ -37,6 +37,7 @@
       @include('Admin.layout.header')
 
       <main class="flex-1 p-4 lg:p-8">
+        @include('Admin.partials.alert')
         @yield('content')
       </main>
     </div>

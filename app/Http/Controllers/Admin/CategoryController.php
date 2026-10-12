@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::withCount('products')->latest()->get();
+
+        return view('Admin.category.index', compact('categories'));
     }
 
     /**
@@ -29,7 +33,21 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|unique:categories,name',
+            // 'slug' => 'required', --> sudah otomatis di buat di model
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg,webp',
+            'is_active' => 'required|boolean',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('categories', 'public');
+        }
+
+        Category::create($data);
+
+        return redirect()->back()->with('success', 'Success Add Category');
     }
 
     /**
@@ -53,7 +71,24 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'nullable',
+            'is_active' => 'required',
+        ]);
+
+        $data['slug'] = Str::slug($data['name']);
+
+        if ($request->hasFile('image')) {
+            if ($category->image) {
+                Storage::disk('public')->delete($category->image);
+            }
+            $data['image'] = $request->file('image')->store('categories', 'public');
+        }
+        $category->update($data);
+
+        return redirect()->back()->with('success', 'Data Kategori Berhasil Diperbarui');
     }
 
     /**
@@ -61,6 +96,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category->image) {
+            Storage::disk('public')->delete($category->image);
+        }
+
+        $category->delete();
+
+        return redirect()->back()->with('success', 'Data Kategori Berhasil Dihapus');
     }
 }

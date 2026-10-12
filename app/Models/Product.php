@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
+use Override;
 
 class Product extends Model
 {
@@ -62,5 +64,13 @@ class Product extends Model
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    #[Override]
+    protected static function booted()
+    {
+        static::creating(function (Product $product) {
+            $product->slug = Str::slug($product->name);
+        });
     }
 }
