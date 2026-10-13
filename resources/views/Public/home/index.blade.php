@@ -4,33 +4,33 @@
 
 @section('content')
 @php
-    $heroImage = setting('hero_image') 
-        ? asset('storage/' . setting('hero_image')) 
+    $heroImage = setting('hero_image')
+        ? asset('storage/' . setting('hero_image'))
         : asset('template/assets/image/hero.jpeg');
 @endphp
 <!-- HERO SECTION - Natural, Clean, High-Converting Agricultural Store Banner -->
 <section id="hero" class="relative min-h-[85vh] py-20 flex items-center bg-cover bg-center overflow-hidden" style="background-image: url('{{ $heroImage }}');">
-    
+
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- Left Hero Copy & Search Bar -->
             <div class="lg:col-span-8 space-y-6" data-aos="fade-right">
-                
+
                 <!-- Trust Tag -->
-                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/95 border border-brand-300 text-brand-900 text-xs sm:text-sm font-bold tracking-wide shadow-sm backdrop-blur-md">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/55 border border-brand-300 text-brand-900 text-xs sm:text-sm font-bold tracking-wide shadow-sm backdrop-blur-md">
                     <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i>
                     <span>{{ setting('hero_badge', 'Langsung dari Lahan Perkebunan PT • Bebas Pestisida Berbahaya') }}</span>
                 </div>
 
                 <!-- Big Headline -->
-                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-brand-950">
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-brand-900">
                     {{ setting('hero_title', 'Panen Segar Perkebunan Langsung ke') }}
                     <span class="text-brand-600 block mt-1">{{ setting('hero_title_highlight', 'Meja Anda') }}</span>
                 </h1>
 
                 <!-- Subheadline -->
-                <div class="max-w-2xl bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-white/90 shadow-sm">
+                <div class="max-w-2xl bg-white/35 backdrop-blur-sm p-4 rounded-2xl border border-white/90 shadow-sm">
                     <p class="text-brand-950 text-base sm:text-lg leading-relaxed font-semibold">
                         {{ setting('hero_subtitle', 'Dipetik harian langsung dari kebun & perkebunan kami. Nikmati aneka komoditas unggulan: Kopi Spesialti, Kelapa Sawit olahan, Beras Merah Organik, Sayuran Higienis, dan Buah Segar Nusantara.') }}
                     </p>
@@ -63,15 +63,15 @@
 
                 <!-- Quick Badges -->
                 <div class="pt-4 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-bold text-brand-900">
-                    <span class="flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
+                    <span class="flex items-center space-x-2 bg-white/55 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
                         <i data-lucide="clock" class="w-4 h-4 text-brand-600"></i>
                         <span>Dipetik Segar Hari Ini</span>
                     </span>
-                    <span class="flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
+                    <span class="flex items-center space-x-2 bg-white/55 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
                         <i data-lucide="truck" class="w-4 h-4 text-brand-600"></i>
                         <span>Pengiriman Cepat Cold Chain</span>
                     </span>
-                    <span class="flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
+                    <span class="flex items-center space-x-2 bg-white/55 backdrop-blur-md px-3.5 py-2 rounded-full border border-brand-200 shadow-sm">
                         <i data-lucide="rotate-ccw" class="w-4 h-4 text-brand-600"></i>
                         <span>Garansi 100% Kesegaran Mutu</span>
                     </span>
